@@ -1,21 +1,21 @@
 const WavesBackground = () => {
   return (
-    <>
+    <div className='h-screen w-screen fixed top-[140px] sm:top-[200px] -z-10'>
       <div
-        className='fixed top-[140px] sm:top-[200px] inset-0 -z-10 h-screen w-screen'
+        className='h-full w-full'
         style={{
           backgroundImage: "url('/icons/wave-path.svg')",
           backgroundRepeat: 'repeat',
         }}
       />
       <div
-        className='fixed top-[156px] sm:top-[216px] inset-0 -z-10 h-screen w-screen'
+        className='h-full w-full absolute top-[13.5px]'
         style={{
           backgroundImage: "url('/icons/wave-path.svg')",
           backgroundRepeat: 'repeat',
         }}
       />
-    </>
+    </div>
   );
 };
 

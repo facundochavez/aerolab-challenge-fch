@@ -2,16 +2,18 @@ import './globals.css';
 import Footer from './sections/Footer';
 import Header from './sections/Header';
 import WavesBackground from './sections/WavesBackground';
+import ThemeProvider from '@/components/theme-provider';
+import GlobalProvider from '@/context/global.context';
 
 export const metadata = {
   title: 'Aerolab Coding Challenge by Facundo Chavez',
   description:
     'This is a coding challenge for the Aerolab Coding Company. Created by Facundo Chavez.',
   icons: {
-    icon: '/favicon.svg',
+    icon: '/aerolab-favicon.svg',
   },
   openGraph: {
-    images: ['/favicon.svg'],
+    images: ['/metadata-image.jpg'],
     title: 'Aerolab Coding Challenge by Facundo Chavez',
     description:
       'This is a coding challenge for the Aerolab Coding Company. Created by Facundo Chavez.',
@@ -35,12 +37,16 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className='relative' lang='en'>
-        <WavesBackground />
-        <Header />
-        <main className='w-screen flex flex-col items-center gap-10 sm:gap-16 px-[5%] pt-[85px] sm:pt-[95px] pb-10'>
-          {children}
-        </main>
-        <Footer />
+        <ThemeProvider attribute='class' defaultTheme='light'>
+          <GlobalProvider>
+            <WavesBackground />
+            <Header />
+            <main className='w-screen flex flex-col items-center gap-10 sm:gap-16 px-[5%] pt-[85px] sm:pt-[95px] pb-10 sm:pb-16'>
+              {children}
+            </main>
+            <Footer />
+          </GlobalProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
