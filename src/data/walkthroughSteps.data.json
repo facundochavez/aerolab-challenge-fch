@@ -1,6 +1,6 @@
 [
   {
-    "index": 1,
+    "position": 1,
     "title": "Browse",
     "description": "Browse our tech catalog with more than 20 top tech products.",
     "icon": "/icons/icon-compass.svg",
@@ -8,7 +8,7 @@
     "imageMobile": "/images/walkthrough-1-mobile.svg"
   },
   {
-    "index": 2,
+    "position": 2,
     "title": "Choose",
     "description": "Exchange your hard earned AeroPoints for the item you want.",
     "icon": "/icons/icon-cursor.svg",
@@ -16,7 +16,7 @@
     "imageMobile": "/images/walkthrough-2-mobile.svg"
   },
   {
-    "index": 3,
+    "position": 3,
     "title": "Enjoy!",
     "description": "All done, you can relax! We’ll take care of delivery of your tech item!",
     "icon": "/icons/icon-stars.svg",

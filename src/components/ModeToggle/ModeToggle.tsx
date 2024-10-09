@@ -9,7 +9,7 @@ const ModeToggle: React.FC = () => {
   return (
     <Button
       variant='secondary'
-      className='px-2 sm:px-3'
+      className='px-2 lg:px-3'
       onClick={() => setTheme(() => (theme === 'light' ? 'dark' : 'light'))}
     >
       <Sun

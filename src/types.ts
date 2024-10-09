@@ -1,5 +1,5 @@
 export type walkthroughStep = {
-  index: number;
+  position: number;
   title: string;
   description: string;
   icon: string;

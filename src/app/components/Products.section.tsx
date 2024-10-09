@@ -1,7 +1,7 @@
 const ProductsSection = () => {
   return (
-    <section className='w-screen h-80 flex flex-col items-center bg-neutral-0'>
-      Products.section
+    <section className='w-screen h-screen flex flex-col items-center bg-neutral-0'>
+      
     </section>
   );
 };
