@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Browse",
+    "description": "Browse our tech catalog with more than 20 top tech products.",
+    "icon": "/icons/icon-aerolab.svg",
+    "image": "/images/walkthrough-image-1.png"
+  },
+  {
+    "title": "Choose",
+    "description": "Exchange your hard earned AeroPoints for the item you want.",
+    "icon": "/icons/icon-aerolab.svg",
+    "image": "/images/walkthrough-image-2.png"
+  },
+  {
+    "title": "Enjoy!",
+    "description": "All done, you can relax! We’ll take care of delivery of your tech item!",
+    "icon": "/icons/icon-aerolab.svg",
+    "image": "/images/walkthrough-image-3.png"
+  }
+]

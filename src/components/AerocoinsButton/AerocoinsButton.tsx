@@ -45,7 +45,7 @@ const AerocoinsButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align='end'
-        className='px-5 py-3 flex flex-col gap-3 w-[312px] max-w-[90vw]'
+        className='px-5 pt-3 pb-5 flex flex-col gap-3 w-[312px] max-w-[90vw]'
       >
         <DropdownMenuLabel className='flex items-center justify-between px-0'>
           <span className='l1-text-default text-neutral-900'>Add Balance</span>

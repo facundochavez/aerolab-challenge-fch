@@ -24,24 +24,24 @@ const Header = () => {
 
   return (
     <header
-      className={`z-10 w-screen h-20 lg:h-32 px-[5%] flex justify-center fixed bg-neutral-0/50 border-b border-transparent ${
+      className={`z-20 w-screen h-20 lg:h-32 px-[5%] flex justify-center fixed bg-neutral-0/50 border-b border-transparent ${
         !isScrollOnTop && ' !border-neutral-300 backdrop-blur-xl'
       }`}
     >
-      <nav className='flex w-full max-w-[1464px] items-center justify-between py-4'>
+      <nav className='relative flex w-full max-w-[1464px] items-center justify-between py-4'>
         <Image
           src='/aerolab-logo-desktop.svg'
           alt='Aerolab Logo'
           width={126}
           height={48}
-          className='hidden xs:flex'
+          className='z-20 hidden xs:flex'
         />
         <Image
           src='/aerolab-logo-responsive.svg'
           alt='Aerolab Logo'
           width={39}
           height={36}
-          className='flex xs:hidden'
+          className='z-20 flex xs:hidden'
         />
         <aside className='flex items-center gap-2'>
           <ModeToggle />

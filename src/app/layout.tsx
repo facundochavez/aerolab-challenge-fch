@@ -40,7 +40,7 @@ export default function RootLayout({
           <GlobalProvider>
             <WavesBackground />
             <Header />
-            <main className='w-screen min-h-[200vh] flex flex-col items-center gap-10 lg:gap-16 px-[5%] pt-[79px] lg:pt-[127px] pb-10 lg:pb-16'>
+            <main className='w-screen flex flex-col items-center gap-10 lg:gap-20 px-[5%] pt-[79px] lg:pt-[127px]'>
               {children}
             </main>
             {/* <Footer /> */}

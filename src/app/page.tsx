@@ -6,8 +6,8 @@ export default function Home() {
   return (
     <>
       <LandingSection />
-{/*       <WalkthroughSection />
-      <ProductsSection /> */}
+      <WalkthroughSection />
+      <ProductsSection />
     </>
   );
 }
