@@ -4,46 +4,37 @@
 
 @layer base {
   :root {
-    --neutral-900: #252f3d;
-    --neutral-600: #7c899c;
-    --neutral-500: #8fa3bf;
-    --neutral-300: #dae4f2;
-    --neutral-200: #e6edf7;
-    --neutral-100: #f5f9ff;
-    --neutral-0: #ffffff;
+    --neutral-900: 215 24% 19%;
+    --neutral-600: 215 13% 54%;
+    --neutral-500: 215 27% 65%;
+    --neutral-300: 214 47% 90%;
+    --neutral-200: 215 51% 93%;
+    --neutral-100: 216 100% 98%;
+    --neutral-0: 0 0% 100%;
 
-    --brand-default: linear-gradient(180deg, #176feb, #ff80ff);
-    --brand-default-1: #176feb;
-    --brand-default-2: #ff80ff;
+    --brand-default-1: 215 84% 50%;
+    --brand-default-2: 300 100% 75%;
 
-    --brand-hover: linear-gradient(180deg, #1667d9, #f279f2);
-    --brand-hover-1: #1667d9;
-    --brand-hover-2: #f279f2;
+    --brand-hover-1: 215 81% 46%;
+    --brand-hover-2: 300 82% 71%;
 
-    --brand-light: #e5f0ff;
-    --brand-light2: #cce1ff;
+    --brand-light: 214 99% 94%;
+    --brand-light2: 215 100% 90%;
 
-    --green-default: #29cc74;
-    --green-light: #ccffe3;
+    --green-default: 147 66% 48%;
+    --green-light: 147 100% 90%;
 
-    --red-default: #e07f4f;
-    --red-light: #ffdfd9;
+    --red-default: 19 70% 59%;
+    --red-light: 9 100% 92%;
 
-    --special-illustration-bg: linear-gradient(180deg, #7296eb, #eac0e9);
-    --special-illustration-bg-1: #7296eb;
-    --special-illustration-bg-2: #eac0e9;
+    --special-illustration-bg-1: 222 75% 68%;
+    --special-illustration-bg-2: 301 49% 83%;
 
-    --special-section-bg: linear-gradient(180deg, #176feb, #ff80ff);
-    --special-section-bg-1: #176feb;
-    --special-section-bg-2: #ff80ff;
+    --special-section-bg-opacity50-1: 215 84% 50%;
+    --special-section-bg-opacity50-2: 300 100% 75%;
 
-    --special-section-bg-opacity: linear-gradient(180deg, #176feb, #ff80ff);
-    --special-section-bg-opacity-1: #176feb;
-    --special-section-bg-opacity-2: #ff80ff;
-
-    --special-aerolab: linear-gradient(180deg, #ff8800, #ff6600);
-    --special-aerolab-1: #ff8800;
-    --special-aerolab-2: #ff6600;
+    --special-aerolab-1: 32 100% 50%;
+    --special-aerolab-2: 24 100% 50%;
 
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -113,7 +104,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;}
+  font-family: 'Montserrat', sans-serif;
+}
 
 html {
   overflow-x: hidden;
@@ -134,7 +126,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 
 /* TITLES */
 .l1-title-default {
@@ -158,12 +149,11 @@ body {
   text-transform: uppercase;
 }
 
-
 /* TEXTS */
 .l1-text-default {
   font-size: 16px;
   font-weight: 600;
-/*   line-height: 150%; */
+  /*   line-height: 150%; */
 }
 
 .l1-text-allcaps {

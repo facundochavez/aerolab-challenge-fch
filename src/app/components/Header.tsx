@@ -24,20 +24,21 @@ const Header = () => {
 
   return (
     <header
-      className={`z-20 w-screen h-20 lg:h-32 px-[5%] flex justify-center fixed bg-neutral-0/50 border-b border-transparent ${
-        !isScrollOnTop && ' !border-neutral-300 backdrop-blur-xl'
+      className={`z-20 w-screen h-20 lg:h-32 px-[5%] flex justify-center fixed border-b border-transparent backdrop-blur-xl ${
+        !isScrollOnTop && ' !border-neutral-300'
       }`}
     >
+      <div className='absolute inset-0 w-full h-full bg-neutral-0 opacity-30'></div>
       <nav className='relative flex w-full max-w-[1464px] items-center justify-between py-4'>
         <Image
-          src='/aerolab-logo-desktop.svg'
+          src='/aerolab-logo.svg'
           alt='Aerolab Logo'
           width={126}
           height={48}
           className='z-20 hidden xs:flex'
         />
         <Image
-          src='/aerolab-logo-responsive.svg'
+          src='/aerolab-simbol.svg'
           alt='Aerolab Logo'
           width={39}
           height={36}

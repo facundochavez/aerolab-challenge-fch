@@ -10,39 +10,42 @@ const config: Config = {
   theme: {
   	extend: {
 			screens: {
-        xs: '400px',
+        xs: '370px',
 				lg: '1025px',
       },
   		colors: {
-  			'neutral-900': 'var(--neutral-900)',
-  			'neutral-600': 'var(--neutral-600)',
-  			'neutral-500': 'var(--neutral-500)',
-  			'neutral-300': 'var(--neutral-300)',
-  			'neutral-200': 'var(--neutral-200)',
-  			'neutral-100': 'var(--neutral-100)',
-  			'neutral-0': 'var(--neutral-0)',
-  			'brand-default': 'var(--brand-default)',
-				'brand-default-1': 'var(--brand-default-1)',
-				'brand-default-2': 'var(--brand-default-2)',
-  			'brand-hover': 'var(--brand-hover)',
-				'brand-hover-1': 'var(--brand-hover-1)',
-				'brand-hover-2': 'var(--brand-hover-2)',
-  			'brand-light': 'var(--brand-light)',
-  			'brand-light2': 'var(--brand-light2)',
-  			'green-default': 'var(--green-default)',
-  			'green-light': 'var(--green-light)',
-  			'red-default': 'var(--red-default)',
-  			'red-light': 'var(--red-light)',
-  			'special-illustration-bg': 'var(--special-illustration-bg)',
-				'special-illustration-bg-1': 'var(--special-illustration-bg-1)',
-				'special-illustration-bg-2': 'var(--special-illustration-bg-2)',
-  			'special-section-bg': 'var(--special-section-bg)',
-				'special-section-bg-1': 'var(--special-section-bg-1)',
-				'special-section-bg-2': 'var(--special-section-bg-2)',
-  			'special-section-bg-opacity': 'var(--special-section-bg-opacity)',
-				'special-section-bg-opacity-1': 'var(--special-section-bg-opacity-1)',
-				'special-section-bg-opacity-2': 'var(--special-section-bg-opacity-2)',
-  			'special-aerolab': 'var(--special-aerolab)',
+				'neutral-900': 'hsl(var(--neutral-900))',
+				'neutral-600': 'hsl(var(--neutral-600))',
+				'neutral-500': 'hsl(var(--neutral-500))',
+				'neutral-300': 'hsl(var(--neutral-300))',
+				'neutral-200': 'hsl(var(--neutral-200))',
+				'neutral-100': 'hsl(var(--neutral-100))',
+				'neutral-0': 'hsl(var(--neutral-0))',
+				
+				'brand-default-1': 'hsl(var(--brand-default-1))',
+				'brand-default-2': 'hsl(var(--brand-default-2))',
+
+				'brand-hover-1': 'hsl(var(--brand-hover-1))',
+				'brand-hover-2': 'hsl(var(--brand-hover-2))',
+
+				'brand-light': 'hsl(var(--brand-light))',
+				'brand-light-2': 'hsl(var(--brand-light2))',
+				
+				'green-default': 'hsl(var(--green-default))',
+				'green-light': 'hsl(var(--green-light))',
+				
+				'red-default': 'hsl(var(--red-default))',
+				'red-light': 'hsl(var(--red-light))',
+				
+				'special-illustration-bg-1': 'hsl(var(--special-illustration-bg-1))',
+				'special-illustration-bg-2': 'hsl(var(--special-illustration-bg-2))',
+
+				'special-section-bg-opacity50-1': 'hsl(var(--special-section-bg-opacity50-1))',
+				'special-section-bg-opacity50-2': 'hsl(var(--special-section-bg-opacity50-2))',
+
+				'special-aerolab-1': 'hsl(var(--special-aerolab-1))',
+				'special-aerolab-2': 'hsl(var(--special-aerolab-2))',
+
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -85,7 +88,7 @@ const config: Config = {
   			}
   		},
   		borderRadius: {
-  			lg: 'var(--radius)',
+  			lg: 'hsl(var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		}

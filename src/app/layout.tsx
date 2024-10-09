@@ -1,6 +1,6 @@
 import './globals.css';
-import Header from './sections/Header';
-import WavesBackground from './sections/WavesBackground';
+import Header from './components/Header';
+import WavesBackground from './components/WavesBackground';
 import ThemeProvider from '@/components/theme-provider';
 import GlobalProvider from '@/context/global.context';
 

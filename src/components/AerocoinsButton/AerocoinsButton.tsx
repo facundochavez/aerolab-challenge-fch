@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { Separator } from '../ui/separator';
 
 const AerocoinsButton = () => {
-  const { aerocoins, setAerocoins } = useGlobalContext();
+  const { aerocoins } = useGlobalContext();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
   const addNumers = [1000, 5000, 7500];
@@ -22,7 +22,7 @@ const AerocoinsButton = () => {
       open={isDropdownOpen}
       onOpenChange={() => setIsDropdownOpen(!isDropdownOpen)}
     >
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <Button variant='secondary'>
           <Image
             src='/icons/icon-aerolab.svg'
@@ -81,7 +81,7 @@ const AerocoinsButton = () => {
         </div>
         <Button className='w-full'>
           <Image
-            src='/icons/icon-aerolab-negative.svg'
+            src='/icons/icon-aerolab-white.svg'
             alt='icon-aerolab'
             width={1}
             height={1}

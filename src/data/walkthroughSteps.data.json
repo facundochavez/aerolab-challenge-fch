@@ -1,20 +1,26 @@
 [
   {
+    "index": 1,
     "title": "Browse",
     "description": "Browse our tech catalog with more than 20 top tech products.",
-    "icon": "/icons/icon-aerolab.svg",
-    "image": "/images/walkthrough-image-1.png"
+    "icon": "/icons/icon-compass.svg",
+    "imageDesktop": "/images/walkthrough-1-desktop.svg",
+    "imageMobile": "/images/walkthrough-1-mobile.svg"
   },
   {
+    "index": 2,
     "title": "Choose",
     "description": "Exchange your hard earned AeroPoints for the item you want.",
-    "icon": "/icons/icon-aerolab.svg",
-    "image": "/images/walkthrough-image-2.png"
+    "icon": "/icons/icon-cursor.svg",
+    "imageDesktop": "/images/walkthrough-2-desktop.svg",
+    "imageMobile": "/images/walkthrough-2-mobile.svg"
   },
   {
+    "index": 3,
     "title": "Enjoy!",
     "description": "All done, you can relax! We’ll take care of delivery of your tech item!",
-    "icon": "/icons/icon-aerolab.svg",
-    "image": "/images/walkthrough-image-3.png"
+    "icon": "/icons/icon-stars.svg",
+    "imageDesktop": "/images/walkthrough-3-desktop.svg",
+    "imageMobile": "/images/walkthrough-3-mobile.svg"
   }
 ]
