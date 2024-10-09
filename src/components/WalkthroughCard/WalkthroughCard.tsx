@@ -36,8 +36,8 @@ const WalkthroughCard = ({ step }: { step: walkthroughStep }) => {
               {step.index}—{step.title}
             </h2>
           </header>
-          <div className='w-full l1-text-default text-neutral-600 flex break-words'>
-            {step.description}
+          <div className='relative w-full xs:h-[72px]'>
+            <p className='xs:absolute l1-text-default text-neutral-600 flex'>{step.description}</p>
           </div>
         </footer>
       </div>
