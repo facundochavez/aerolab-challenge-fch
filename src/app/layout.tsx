@@ -1,5 +1,4 @@
 import './globals.css';
-import Footer from './sections/Footer';
 import Header from './sections/Header';
 import WavesBackground from './sections/WavesBackground';
 import ThemeProvider from '@/components/theme-provider';
@@ -41,10 +40,10 @@ export default function RootLayout({
           <GlobalProvider>
             <WavesBackground />
             <Header />
-            <main className='w-screen flex flex-col items-center gap-10 sm:gap-16 px-[5%] pt-[85px] sm:pt-[95px] pb-10 sm:pb-16'>
+            <main className='w-screen min-h-[200vh] flex flex-col items-center gap-10 lg:gap-16 px-[5%] pt-[79px] lg:pt-[127px] pb-10 lg:pb-16'>
               {children}
             </main>
-            <Footer />
+            {/* <Footer /> */}
           </GlobalProvider>
         </ThemeProvider>
       </body>

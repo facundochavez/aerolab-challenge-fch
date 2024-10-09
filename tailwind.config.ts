@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+			screens: {
+        xs: '400px',
+				lg: '1025px',
+      },
   		colors: {
   			'neutral-900': 'var(--neutral-900)',
   			'neutral-600': 'var(--neutral-600)',

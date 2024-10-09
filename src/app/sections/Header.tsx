@@ -1,15 +1,6 @@
 'use client';
 import AerocoinsButton from '@/components/AerocoinsButton/AerocoinsButton';
 import ModeToggle from '@/components/ModeToggle/ModeToggle';
-import { Button } from '@/components/ui/button';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Separator } from '@/components/ui/separator';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -33,8 +24,8 @@ const Header = () => {
 
   return (
     <header
-      className={`z-10 w-screen h-20 sm:h-32 px-[5%] flex justify-center fixed bg-neutral-0/50 border-b border-transparent ${
-        !isScrollOnTop && ' !border-neutral-300 backdrop-blur-md'
+      className={`z-10 w-screen h-20 lg:h-32 px-[5%] flex justify-center fixed bg-neutral-0/50 border-b border-transparent ${
+        !isScrollOnTop && ' !border-neutral-300 backdrop-blur-xl'
       }`}
     >
       <nav className='flex w-full max-w-[1464px] items-center justify-between py-4'>
@@ -43,14 +34,14 @@ const Header = () => {
           alt='Aerolab Logo'
           width={126}
           height={48}
-          className='hidden sm:flex'
+          className='hidden xs:flex'
         />
         <Image
           src='/aerolab-logo-responsive.svg'
           alt='Aerolab Logo'
           width={39}
           height={36}
-          className='flex sm:hidden'
+          className='flex xs:hidden'
         />
         <aside className='flex items-center gap-2'>
           <ModeToggle />

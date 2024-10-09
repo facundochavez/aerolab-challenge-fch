@@ -29,7 +29,7 @@ const AerocoinsButton = () => {
             alt='icon-aerolab'
             width={1}
             height={1}
-            className='w-5 sm:w-6 h-5 sm:h-6'
+            className='w-5 lg:w-6 h-5 lg:h-6'
           />
           <span className='l1-text-default'>{formatedNumber(aerocoins)}</span>
           <Image
@@ -37,7 +37,7 @@ const AerocoinsButton = () => {
             alt='icon-chevron'
             width={1}
             height={1}
-            className={`w-5 sm:w-6 h-5 sm:h-6 transition-transform duration-100 ${
+            className={`w-5 lg:w-6 h-5 lg:h-6 transition-transform duration-100 ${
               isDropdownOpen ? 'rotate-[-90deg]' : 'rotate-[90deg]'
             }`}
           />
@@ -54,7 +54,7 @@ const AerocoinsButton = () => {
             alt='Close icon'
             width={1}
             height={1}
-            className='w-5 sm:w-6 h-5 sm:h-6 cursor-pointer hover:opacity-85'
+            className='w-5 lg:w-6 h-5 lg:h-6 cursor-pointer hover:opacity-85'
             onClick={() => setIsDropdownOpen(false)}
           />
         </DropdownMenuLabel>
@@ -85,7 +85,7 @@ const AerocoinsButton = () => {
             alt='icon-aerolab'
             width={1}
             height={1}
-            className='w-5 sm:w-6 h-5 sm:h-6'
+            className='w-5 lg:w-6 h-5 lg:h-6'
           />
           <span className='l1-text-default'>Add Points</span>
         </Button>

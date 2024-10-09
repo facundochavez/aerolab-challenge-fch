@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          '!h-10 sm:!h-12 !rounded-[14px] sm:!rounded-[16px] bg-gradient-to-r from-brand-default-1 to-brand-default-2 hover:from-brand-hover-1 hover:to-brand-hover-2 [&>span]:text-neutral-0 hover:bg-primary/90',
+          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-gradient-to-r from-brand-default-1 to-brand-default-2 hover:from-brand-hover-1 hover:to-brand-hover-2 [&>span]:text-neutral-0 hover:bg-primary/90',
         destructive:
           'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
         outline:
           'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
         secondary:
-          '!h-10 sm:!h-12 !rounded-[14px] sm:!rounded-[16px] bg-neutral-0 border border-neutral-300 text-secondary-foreground shadow-sm hover:bg-secondary/80 [&>span]:text-transparent [&>span]:bg-clip-text [&>span]:bg-gradient-to-r [&>span]:from-brand-default-1 [&>span]:to-brand-default-2',
+          '!h-10 lg:!h-12 !rounded-[14px] lg:!rounded-[16px] bg-neutral-0 border border-neutral-300 text-secondary-foreground shadow-sm hover:bg-neutral-100 [&>span]:text-transparent [&>span]:bg-clip-text [&>span]:bg-gradient-to-r [&>span]:from-brand-default-1 [&>span]:to-brand-default-2',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         selector:
@@ -51,7 +51,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         className={
           cn(buttonVariants({ variant, size, className })) +
-          ' !gap-2 sm:!gap-2.5 drop-shadow-sm [&>span]:!leading-none'
+          ' !gap-2 lg:!gap-2.5 drop-shadow-sm [&>span]:!leading-none'
         }
         ref={ref}
         {...props}

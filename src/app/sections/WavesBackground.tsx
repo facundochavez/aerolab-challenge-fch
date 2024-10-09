@@ -1,6 +1,6 @@
 const WavesBackground = () => {
   return (
-    <div className='h-screen w-screen fixed top-[140px] sm:top-[200px] -z-10'>
+    <div className='h-screen w-screen fixed top-[140px] lg:top-[200px] -z-10'>
       <div
         className='h-full w-full'
         style={{
