@@ -15,7 +15,7 @@ interface ProductsProviderProps {
 }
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
-  const [sortedBy, setSortedBy] = useState<'price' | 'date'>('price');
+  const [sortedBy, setSortedBy] = useState<'price' | 'date'>('date');
   const [sortDirection, setSortDirection] = useState<'up' | 'down'>('up');
 
   return (

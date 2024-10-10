@@ -64,6 +64,14 @@
   }
 
   .dark {
+    --neutral-900: 0 0% 100%;
+    --neutral-600: 216 100% 98%;
+    --neutral-500: 215 51% 93%;
+    --neutral-300: 214 47% 90%;
+    --neutral-200: 215 27% 65%;
+    --neutral-100: 215 13% 54%;
+    --neutral-0: 215 24% 19%;
+
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -225,4 +233,15 @@ body {
   );
   color: transparent;
   background-clip: text;
+}
+
+.scroll-area {
+  mask-image: linear-gradient(to left, transparent, black 40px);
+  scrollbar-width: none;
+}
+
+@media screen and (min-width: 435px) {
+  .scroll-area {
+    mask-image: none;
+  }
 }
