@@ -8,7 +8,8 @@ const Footer = () => {
   return (
     <footer className='w-full px-[5%] flex flex-col items-center py-24'>
       <a
-        href=''
+        href='https://github.com/facundochavez/aerolab-challenge-fch'
+        target='_blank'
         className='relative flex items-center gap-3 l1-text-default'
         onMouseEnter={() => setIsLinkHovered(true)}
         onMouseLeave={() => setIsLinkHovered(false)}

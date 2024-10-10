@@ -4,6 +4,7 @@ import WavesBackground from './components/WavesBackground';
 import ThemeProvider from '@/components/theme-provider';
 import GlobalProvider from '@/context/global.context';
 import Footer from './components/Footer';
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata = {
   title: 'Aerolab Coding Challenge by Facundo Chavez',
@@ -45,6 +46,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <Toaster />
           </GlobalProvider>
         </ThemeProvider>
       </body>

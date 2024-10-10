@@ -60,7 +60,9 @@ const ProductsSection = () => {
       <section
         id='products-section'
         className='w-screen flex flex-col items-center gap-10 bg-neutral-0 pt-20 px-[5%] lg:pt-48 pb-40'
-        style={{ maskImage: 'linear-gradient(to top, transparent, black 80px)' }}
+        style={{
+          maskImage: 'linear-gradient(to top, transparent, black 80px)',
+        }}
       >
         <header className='w-full max-w-[1464px] flex flex-col items-center'>
           <h1 className='w-full l2-title-default text-neutral-900 text-center sm:text-left !leading-8 pb-8 lg:pb-14'>
@@ -84,7 +86,7 @@ const ProductsSection = () => {
             return (
               <li key={product._id} className='w-full flex flex-col gap-4'>
                 <ProductCard product={product} state={state} />
-                <RedeemButton state={state} coins={product.cost} />
+                <RedeemButton state={state} coins={product.cost} productName={product.name} />
               </li>
             );
           })}

@@ -25,4 +25,4 @@ export type Product = {
   };
 };
 
-export type ProductCardState = 'enabled' | 'disabled' | 'processing';
+export type ProductCardState = 'enabled' | 'disabled' | 'processing' | 'charging';

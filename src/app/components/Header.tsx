@@ -45,7 +45,7 @@ const Header = () => {
           className='z-20 flex xs:hidden'
         />
         <aside className='flex items-center gap-2'>
-          <ModeToggle />
+          {/* <ModeToggle /> */}
           <AerocoinsButton />
         </aside>
       </nav>
