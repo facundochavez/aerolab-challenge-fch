@@ -3,6 +3,7 @@ import Header from './components/Header';
 import WavesBackground from './components/WavesBackground';
 import ThemeProvider from '@/components/theme-provider';
 import GlobalProvider from '@/context/global.context';
+import Footer from './components/Footer';
 
 export const metadata = {
   title: 'Aerolab Coding Challenge by Facundo Chavez',
@@ -43,7 +44,7 @@ export default function RootLayout({
             <main className='w-screen flex flex-col items-center gap-10 lg:gap-20 px-[5%] pt-[79px] lg:pt-[127px]'>
               {children}
             </main>
-            {/* <Footer /> */}
+            <Footer />
           </GlobalProvider>
         </ThemeProvider>
       </body>

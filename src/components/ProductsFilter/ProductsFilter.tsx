@@ -10,7 +10,7 @@ import {
 
 const ProductsFilter = () => {
   return (
-    <div className='order-1 flex items-center gap-3'>
+    <div className='flex items-center gap-3'>
       <p className='l1-text-lightweight hidden xl:flex'>Filter by:</p>
       <Select>
         <SelectTrigger className='w-[90vw] sm:w-[300px] h-[59px] l1-text-default text-neutral-600 rounded-[14px] lg:rounded-[16px] border-neutral-300 px-6 shadow-none'>

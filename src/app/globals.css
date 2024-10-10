@@ -227,12 +227,28 @@ body {
 
 .text-brand-gradient {
   background-image: linear-gradient(
-    to right,
+    120deg,
     hsl(var(--brand-default-1)),
     hsl(var(--brand-default-2))
   );
   color: transparent;
   background-clip: text;
+}
+
+.bg-brand-gradient {
+  background-image: linear-gradient(
+    120deg,
+    hsl(var(--brand-default-1)),
+    hsl(var(--brand-default-2))
+  );
+}
+
+.bg-brand-gradient:hover {
+  background-image: linear-gradient(
+    120deg,
+    hsl(var(--brand-hover-1)),
+    hsl(var(--brand-hover-2))
+  );
 }
 
 .scroll-area {
@@ -244,4 +260,9 @@ body {
   .scroll-area {
     mask-image: none;
   }
+}
+
+.filter-neutral-500 {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(39%) saturate(229%)
+    hue-rotate(176deg) brightness(91%) contrast(82%);
 }

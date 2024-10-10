@@ -10,7 +10,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-gradient-to-r from-brand-default-1 to-brand-default-2 hover:from-brand-hover-1 hover:to-brand-hover-2 [&>span]:text-neutral-0 hover:bg-primary/90',
+          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-brand-gradient [&>span]:text-neutral-0 hover:bg-primary/90',
+        disabled:
+          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-neutral-200 [&>span]:text-neutral-600 cursor-not-allowed',
+        processing:
+          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-brand-gradient opacity-70 [&>span]:text-neutral-0 bg-opacity-70 cursor-auto',
         destructive:
           'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
         outline:
@@ -22,7 +26,7 @@ const buttonVariants = cva(
         selector:
           '!px-1 !rounded-xl bg-[#E5F0FF] drop-shadow-none hover:opacity-85',
         selected:
-          '!px-1 !rounded-xl bg-gradient-to-r from-brand-default-1 to-brand-default-2 drop-shadow-none hover:from-brand-hover-1 hover:to-brand-hover-2 [&>span]:text-neutral-0',
+          '!px-1 !rounded-xl bg-brand-gradient drop-shadow-none [&>span]:text-neutral-0',
       },
       size: {
         default: 'h-9 px-4 py-2',

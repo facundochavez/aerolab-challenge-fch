@@ -17,7 +17,6 @@ const SortButton: React.FC<SortButtonProps> = ({
     <Button
       onClick={onClick}
       variant={`${isSorting ? 'selected' : 'selector'}`}
-      className={`!bg-gradient-to-br`}
     >
       <Image 
         src={`/icons/arrow-down.svg`}
