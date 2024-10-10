@@ -26,8 +26,11 @@ const ProductsSorter = () => {
       />
       <p className='l1-text-lightweight mr-2 hidden xl:flex'>Sort by:</p>
       {sortOptions.map((option) => (
-        <SortBadge sortOption={option} />
+        <>
+          <SortBadge sortOption={option} />
+        </>
       ))}
+      <div className='min-w-4 h-10 xl:hidden'></div>
     </div>
   );
 };

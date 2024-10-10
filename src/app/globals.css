@@ -251,13 +251,13 @@ body {
   );
 }
 
-.scroll-area {
+.scroll-area-mask {
   mask-image: linear-gradient(to left, transparent, black 40px);
   scrollbar-width: none;
 }
 
 @media screen and (min-width: 435px) {
-  .scroll-area {
+  .scroll-area-mask {
     mask-image: none;
   }
 }
@@ -265,4 +265,8 @@ body {
 .filter-neutral-500 {
   filter: brightness(0) saturate(100%) invert(67%) sepia(39%) saturate(229%)
     hue-rotate(176deg) brightness(91%) contrast(82%);
+}
+
+[data-sonner-toaster] {
+  --mobile-offset: 4.5vw !important;
 }

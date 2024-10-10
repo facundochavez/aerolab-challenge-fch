@@ -57,7 +57,7 @@ const PaginationLink = ({
         size,
       }),
       className,
-      `w-10 h-10 bg-neutral-200 [&>img]:opacity-20 rounded-[8px] border-none hover:bg-neutral-200 cursor-not-allowed ${
+      `w-10 h-10 bg-neutral-200 [&>img]:opacity-20 !rounded-xl border-none hover:bg-neutral-200 cursor-not-allowed ${
         isActive &&
         '!bg-brand-light [&>img]:!opacity-100 hover:opacity-80 cursor-pointer'
       }`

@@ -5,7 +5,7 @@ import { ProductCardState } from '@/types';
 import formatedNumber from '@/utils/formatedNumber';
 import { LoaderCircle } from 'lucide-react';
 import { Skeleton } from '../ui/skeleton';
-import { toast } from 'sonner';
+import { showSuccessToast, showErrorToast } from '@/utils/toastUtils';
 
 const RedeemButton = ({
   state,
@@ -20,15 +20,9 @@ const RedeemButton = ({
     <Skeleton className='w-full min-h-[56px] xl:min-h-[59px] rounded-[14px] lg:rounded-[16px]' />
   ) : (
     <Button
-      onClick={() =>
-        toast(productName, {
-          description: 'redeemed successfully',
-          action: {
-            label: 'Undo',
-            onClick: () => console.log('Undo'),
-          },
-        })
-      }
+      onClick={() => {
+        showSuccessToast(productName);
+      }}
       className='w-full min-h-[56px] xl:min-h-[59px] l1-text-default'
       variant={
         state === 'disabled'
