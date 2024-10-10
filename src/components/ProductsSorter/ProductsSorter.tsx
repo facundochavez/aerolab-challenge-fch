@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import SortBadge from './SortBadge/SortBadge';
 import { SortOption } from '@/types';
+import { Separator } from '../ui/separator';
 
 const ProductsSorter = () => {
   const sortOptions = [
@@ -20,7 +21,9 @@ const ProductsSorter = () => {
   ] as SortOption[];
 
   return (
-    <div className='flex gap-2'>
+    <div className='flex items-center gap-2 w-full xl:w-auto order-3 xl:order-2 xl:mr-auto'>
+      <Separator orientation='vertical' className='mx-2 h-[59px] border-[1.5px] border-neutral-300 hidden xl:flex' />
+      <p className='l1-text-lightweight mr-2 hidden xl:flex'>Sort by:</p>
       {sortOptions.map((option) => (
         <SortBadge sortOption={option} />
       ))}
