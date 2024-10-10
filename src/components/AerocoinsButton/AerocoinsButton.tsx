@@ -31,7 +31,7 @@ const AerocoinsButton = () => {
             height={1}
             className='w-5 lg:w-6 h-5 lg:h-6'
           />
-          <span className='l1-text-default'>{formatedNumber(aerocoins)}</span>
+          <span className='l1-text-default text-brand-gradient'>{formatedNumber(aerocoins)}</span>
           <Image
             src='/icons/chevron-right.svg'
             alt='icon-chevron'
@@ -75,7 +75,7 @@ const AerocoinsButton = () => {
               onClick={() => setSelectedIndex(index)}
               className='w-full max-h-[35px]'
             >
-              <span className='l1-text-default'>{formatedNumber(num)} </span>
+              <span className='l1-text-default text-brand-gradient'>{formatedNumber(num)} </span>
             </Button>
           ))}
         </div>

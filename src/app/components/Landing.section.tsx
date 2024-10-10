@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 const LandingSection = () => {
   return (
-    <section className='w-full flex flex-col items-center lg:flex-row max-w-[1464px] pt-[89px] lg:pt-[120px]'>
+    <section className='w-full flex flex-col items-center lg:flex-row max-w-[1464px] pt-[90px] lg:pt-[110px]'>
       <div className='w-min max-w-[90vw] flex flex-col items-center lg:items-start gap-2 lg:-mr-36  xl:mr-0 '>
         <h1 className='l1-text-allcaps text-neutral-600'>Explore the</h1>
         <div className='flex flex-col items-center lg:items-start gap-2 origin-left lg:scale-[0.83] lg:-my-6 xl:scale-100 xl:my-0'>
-          <h1 className='l1-title-default text-transparent bg-clip-text bg-gradient-to-r from-brand-default-1 to-brand-default-2'>
+          <h1 className='l1-title-default text-brand-gradient'>
             Tech
           </h1>
           <h1 className='l1-title-default text-neutral-900'>Zone</h1>

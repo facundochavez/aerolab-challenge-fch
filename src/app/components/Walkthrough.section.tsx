@@ -1,11 +1,11 @@
-import { walkthroughStep } from '@/types';
+import { WalkthroughStep } from '@/types';
 import walkthroughStepsDataRaw from '@/data/walkthroughSteps.data.json';
 import WalkthroughCard from '@/components/WalkthroughCard/WalkthroughCard';
 import Image from 'next/image';
 import LandingImage from '@/components/LandingImage/LandingImage';
 
 const WalkthroughSection = () => {
-  const walkthroughStepsData = walkthroughStepsDataRaw as walkthroughStep[];
+  const walkthroughStepsData = walkthroughStepsDataRaw as WalkthroughStep[];
 
   return (
     <section className='relative w-screen flex flex-col items-center px-[5%] xs:px-[3%] lg:px-[5%] mt-[65px] md:mt-[290px] lg:mt-40 lg:h-[300px] xl:h-[528px]'>
