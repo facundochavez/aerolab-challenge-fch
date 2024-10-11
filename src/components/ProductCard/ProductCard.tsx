@@ -1,9 +1,8 @@
 import { Product } from '@/types';
-import RedeemButton from '../RedeemButton/RedeemButton';
 import Image from 'next/image';
 import { ProductCardState } from '@/types';
-import { Separator } from '../ui/separator';
-import { Skeleton } from '../ui/skeleton';
+import { Separator } from '@/components/ui/separator';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const ProductCard = ({
   product,
@@ -14,11 +13,11 @@ const ProductCard = ({
 }) => {
   return (
     <div
-      className={`w-full flex flex-col items-center bg-neutral-0 border border-neutral-300 rounded-[16px] shadow-md shadow-neutral-500/10 ${
+      className={`w-full flex flex-col items-center bg-white border border-neutral-300 rounded-[16px] shadow-md shadow-neutral-500/10 ${
         state === 'disabled' && 'grayscale opacity-50'
       }`}
     >
-      <div className='h-[345px] flex items-center justify-center'>
+      <header className='h-[345px] flex items-center justify-center'>
         {state === 'charging' ? (
           <Image
             src='/icons/icon-aerolab-skeleton.svg'
@@ -36,7 +35,7 @@ const ProductCard = ({
             className={`w-[280px]`}
           />
         )}
-      </div>
+      </header>
       <Separator />
       <footer className='w-full p-6 pt-4'>
         {state === 'charging' ? (

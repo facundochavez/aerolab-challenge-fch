@@ -30,20 +30,26 @@ const Header = () => {
     >
       <div className='absolute inset-0 w-full h-full bg-neutral-0 opacity-30'></div>
       <nav className='relative flex w-full max-w-[1464px] items-center justify-between py-4'>
-        <Image
-          src='/aerolab-logo.svg'
-          alt='Aerolab Logo'
-          width={126}
-          height={48}
-          className='z-20 hidden xs:flex'
-        />
-        <Image
-          src='/aerolab-simbol.svg'
-          alt='Aerolab Logo'
-          width={39}
-          height={36}
-          className='z-20 flex xs:hidden'
-        />
+        <a
+          href='https://aerolab.co/'
+          target='_blank'
+          className='hover:opacity-90'
+        >
+          <Image
+            src='/aerolab-logo.svg'
+            alt='Aerolab Logo'
+            width={126}
+            height={48}
+            className='z-20 hidden xs:flex'
+          />
+          <Image
+            src='/aerolab-simbol.svg'
+            alt='Aerolab Logo'
+            width={39}
+            height={36}
+            className='z-20 flex xs:hidden'
+          />
+        </a>
         <aside className='flex items-center gap-2'>
           {/* <ModeToggle /> */}
           <AerocoinsButton />

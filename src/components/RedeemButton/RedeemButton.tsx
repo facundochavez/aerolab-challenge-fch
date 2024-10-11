@@ -1,11 +1,12 @@
 'use client';
 import Image from 'next/image';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import { ProductCardState } from '@/types';
 import formatedNumber from '@/utils/formatedNumber';
 import { LoaderCircle } from 'lucide-react';
-import { Skeleton } from '../ui/skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { showSuccessToast, showErrorToast } from '@/utils/toastUtils';
+import { useState } from 'react';
 
 const RedeemButton = ({
   state,
@@ -16,6 +17,8 @@ const RedeemButton = ({
   coins: number;
   productName: string;
 }) => {
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
+
   return state === 'charging' ? (
     <Skeleton className='w-full min-h-[56px] xl:min-h-[59px] rounded-[14px] lg:rounded-[16px]' />
   ) : (
@@ -23,6 +26,8 @@ const RedeemButton = ({
       onClick={() => {
         showSuccessToast(productName);
       }}
+      onMouseEnter={() => setIsButtonHovered(true)}
+      onMouseLeave={() => setIsButtonHovered(false)}
       className='w-full min-h-[56px] xl:min-h-[59px] l1-text-default'
       variant={
         state === 'disabled'
@@ -39,7 +44,7 @@ const RedeemButton = ({
         </>
       ) : (
         <>
-          <span>{state === 'disabled' ? 'You need' : 'Redeem for'}</span>
+          <span>{state === 'disabled' ? 'You need' : isButtonHovered? 'Redeem now for' : 'Redeem for'}</span>
           <Image
             src='/icons/icon-aerolab-white.svg'
             alt='icon-aerolab'

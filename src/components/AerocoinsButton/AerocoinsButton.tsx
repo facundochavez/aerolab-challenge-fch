@@ -9,10 +9,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { useState } from 'react';
-import { Separator } from '../ui/separator';
+import { Separator } from '@/components/ui/separator';
 
 const AerocoinsButton = () => {
-  const { aerocoins } = useGlobalContext();
+  /* const { aerocoins } = useGlobalContext(); */
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number>(1);
   const addNumers = [1000, 5000, 7500];
@@ -31,7 +31,7 @@ const AerocoinsButton = () => {
             height={1}
             className='w-5 lg:w-6 h-5 lg:h-6'
           />
-          <span className='l1-text-default text-brand-gradient'>{formatedNumber(aerocoins)}</span>
+          <span className='l1-text-default text-brand-gradient'>{formatedNumber(10000)}</span>
           <Image
             src='/icons/chevron-right.svg'
             alt='icon-chevron'

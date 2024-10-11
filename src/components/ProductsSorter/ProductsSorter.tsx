@@ -1,6 +1,6 @@
 import SortBadge from './SortBadge/SortBadge';
 import { SortOption } from '@/types';
-import { Separator } from '../ui/separator';
+import { Separator } from '@/components/ui/separator';
 
 const ProductsSorter = () => {
   const sortOptions = [

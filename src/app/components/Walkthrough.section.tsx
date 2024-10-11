@@ -39,7 +39,9 @@ const WalkthroughSection = () => {
             className={`w-[30%] flex flex-col items-center transition-all duration-300 ease-in-out hover:mb-16`}
             style={{
               transformOrigin: `${200 * (1 - index)}% 2000px`,
-              transform: `rotate(${3 * (index - 1)}deg)`,
+              transform: `rotate(${3 * (index - 1)}deg) translateY(${
+                8 * (1 - index)
+              }px)`,
             }}
           >
             <WalkthroughCard step={step} />
