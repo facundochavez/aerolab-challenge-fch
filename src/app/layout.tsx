@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import { Toaster } from '@/components/ui/sonner';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
-import { metadata } from '@/app/shared-metadata';
+import { metadata } from '@/app/metadata';
 
 export default function RootLayout({
   children,

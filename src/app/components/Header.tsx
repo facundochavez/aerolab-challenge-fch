@@ -1,5 +1,5 @@
 'use client';
-import AerocoinsButton from '@/components/AerocoinsButton/AerocoinsButton';
+import PointsButton from '@/components/PointsButton/PointsButton';
 import ModeToggle from '@/components/ModeToggle/ModeToggle';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -52,7 +52,7 @@ const Header = () => {
         </a>
         <aside className='flex items-center gap-2'>
           {/* <ModeToggle /> */}
-          <AerocoinsButton />
+          <PointsButton />
         </aside>
       </nav>
     </header>

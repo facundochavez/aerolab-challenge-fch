@@ -34,7 +34,7 @@
     "**/*.tsx",
     "src/components/theme-provider.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/redux/store.js", "src/redux/states/products.js"  ],
   "exclude": [
     "node_modules"
   ]

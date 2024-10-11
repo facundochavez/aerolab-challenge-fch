@@ -1,4 +1,7 @@
-import { useGlobalContext } from '@/context/global.context';
+'use client';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUser, addUserPoints } from '@/redux/states/user';
 import { Button } from '@/components/ui/button';
 import formatedNumber from '@/utils/formatedNumber';
 import Image from 'next/image';
@@ -8,14 +11,33 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useState } from 'react';
 import { Separator } from '@/components/ui/separator';
+import { LoaderCircle } from 'lucide-react';
+import { AppDispatch, RootState } from '@/types';
 
-const AerocoinsButton = () => {
-  /* const { aerocoins } = useGlobalContext(); */
+const PointsButton = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState<number>(1);
-  const addNumers = [1000, 5000, 7500];
+  const [selectedIndex, setSelectedIndex] = useState<number | undefined>(
+    undefined
+  );
+  const addNumbers = [1000, 5000, 7500];
+
+  const user = useSelector((state: RootState) => state.user);
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    if (user.status === 'idle') {
+      dispatch(fetchUser());
+    }
+  }, [user]);
+
+  // Función para manejar el agregar puntos
+  const handleAddPoints = () => {
+    if (selectedIndex !== undefined) {
+      const pointsToAdd = addNumbers[selectedIndex];
+      dispatch(addUserPoints(pointsToAdd));
+    }
+  };
 
   return (
     <DropdownMenu
@@ -24,14 +46,20 @@ const AerocoinsButton = () => {
     >
       <DropdownMenuTrigger asChild>
         <Button variant='secondary'>
-          <Image
-            src='/icons/icon-aerolab.svg'
-            alt='icon-aerolab'
-            width={1}
-            height={1}
-            className='w-5 lg:w-6 h-5 lg:h-6'
-          />
-          <span className='l1-text-default text-brand-gradient'>{formatedNumber(10000)}</span>
+          {!user.points || user.status === 'loading' ? (
+            <LoaderCircle className='h-6 w-6 animate-spin text-brand-default-1' />
+          ) : (
+            <Image
+              src='/icons/icon-aerolab.svg'
+              alt='icon-aerolab'
+              width={1}
+              height={1}
+              className='w-5 lg:w-6 h-5 lg:h-6'
+            />
+          )}
+          <span className='l1-text-default text-brand-gradient'>
+            {!user.points ? 'Loading...' : formatedNumber(user.points)}
+          </span>
           <Image
             src='/icons/chevron-right.svg'
             alt='icon-chevron'
@@ -68,18 +96,24 @@ const AerocoinsButton = () => {
           className='w-full my-2'
         />
         <div className='flex gap-2'>
-          {addNumers.map((num, index) => (
+          {addNumbers.map((num, index) => (
             <Button
               key={index}
               variant={selectedIndex === index ? 'selected' : 'selector'}
               onClick={() => setSelectedIndex(index)}
               className='w-full max-h-[35px]'
             >
-              <span className='l1-text-default text-brand-gradient'>{formatedNumber(num)} </span>
+              <span className='l1-text-default text-brand-gradient'>
+                {formatedNumber(num)}{' '}
+              </span>
             </Button>
           ))}
         </div>
-        <Button className='w-full'>
+        <Button
+          className='w-full'
+          disabled={selectedIndex === undefined}
+          onClick={handleAddPoints}
+        >
           <Image
             src='/icons/icon-aerolab-white.svg'
             alt='icon-aerolab'
@@ -87,11 +121,11 @@ const AerocoinsButton = () => {
             height={1}
             className='w-5 lg:w-6 h-5 lg:h-6'
           />
-          <span className='l1-text-default'>Add Points</span>
+          <span className='l1-text-default text-white'>Add Points</span>
         </Button>
       </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
-export default AerocoinsButton;
+export default PointsButton;

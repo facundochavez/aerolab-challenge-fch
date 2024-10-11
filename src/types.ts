@@ -26,3 +26,16 @@ export type Product = {
 };
 
 export type ProductCardState = 'enabled' | 'disabled' | 'processing' | 'charging';
+
+import { store } from '@/redux/store';
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+
+export interface User {
+  id: string | null;
+  name: string;
+  points: number | undefined;
+  redeemHistory: any[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed' | 'processing' | undefined;
+  error: string | undefined;
+}
