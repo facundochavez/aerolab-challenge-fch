@@ -12,13 +12,13 @@ const ProductsPagination = () => {
   const isPrevDisabled = currentProductsPage === 1;
   const isNextDisabled = currentProductsPage === totalProductsPages;
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (!hasMounted) {
       setHasMounted(true);
     } else {
       scrollToProductsSection();
     }
-  }, [currentProductsPage]);
+  }, [currentProductsPage]); */
 
   return (
     <div className='flex items-center gap-4 h-[60px] rounded-[14px] lg:rounded-[16px] border border-neutral-300 p-2'>
@@ -27,6 +27,7 @@ const ProductsPagination = () => {
         disabled={isPrevDisabled}
         onClick={() => {
           setCurrentProductsPage(currentProductsPage - 1);
+          setTimeout(() => scrollToProductsSection(), 0);
         }}
       >
         <Image
@@ -46,7 +47,10 @@ const ProductsPagination = () => {
       <Button
         variant='pagination'
         disabled={isNextDisabled}
-        onClick={() => setCurrentProductsPage(currentProductsPage + 1)}
+        onClick={() => {
+          setCurrentProductsPage(currentProductsPage + 1);
+          setTimeout(() => scrollToProductsSection(), 0);
+        }}
       >
         <Image
           src='/icons/chevron-right.svg'
