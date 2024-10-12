@@ -51,7 +51,7 @@ const Header = () => {
           />
         </a>
         <aside className='flex items-center gap-2'>
-          {/* <ModeToggle /> */}
+          <ModeToggle />
           <PointsButton />
         </aside>
       </nav>

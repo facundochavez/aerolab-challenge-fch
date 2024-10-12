@@ -51,7 +51,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
     null
   );
 
-  // INITIALIZE CONTEXT VALUES
+  // READ VALUES FROM LOCALSTORAGE
   const [orderBy, setOrderBy] = useState<'date' | 'price' | 'name'>(
     () => getFromLocalStorage('orderBy', 'date') as 'price' | 'date'
   );
@@ -165,9 +165,9 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         case 'price':
           sorted = [...filteredProducts].sort((a, b) => {
             if (orderDirection === 'down') {
-              return a.cost - b.cost;
+              return a.cost - b.cost; // LOW TO HIGH
             } else {
-              return b.cost - a.cost;
+              return b.cost - a.cost; // HIGH TO LOW
             }
           });
           break;
@@ -185,8 +185,8 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         case 'date':
           sorted =
             orderDirection === 'down'
-              ? [...filteredProducts]
-              : [...filteredProducts].reverse();
+              ? [...filteredProducts] // MOST RECENT
+              : [...filteredProducts].reverse(); // MOST ANCIENT
           setOrderedProducts(sorted);
           break;
       }

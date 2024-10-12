@@ -1,0 +1,20 @@
+[
+  {
+    "id": "date",
+    "label": "Date",
+    "downText": "Most Recent",
+    "upText": "Most Ancient"
+  },
+  {
+    "id": "price",
+    "label": "Price",
+    "downText": "Lowest Price",
+    "upText": "Highest Price"
+  },
+  {
+    "id": "name",
+    "label": "Name",
+    "downText": "From A to Z",
+    "upText": "Form Z to A"
+  }
+]

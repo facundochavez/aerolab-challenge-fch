@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const LandingImage = ({ disableBackground = false }) => {
+const HeroImage = ({ disableBackground = false }) => {
   return (
     <div className='relative w-full h-full'>
       {!disableBackground && (
@@ -9,7 +9,7 @@ const LandingImage = ({ disableBackground = false }) => {
       <Image
         loading='lazy'
         src='/images/hero-desktop.svg'
-        alt='Landing Image'
+        alt='Hero Image'
         width={1}
         height={1}
         className={`bottom-0 w-full aspect-square object-cover hidden lg:flex ${
@@ -19,7 +19,7 @@ const LandingImage = ({ disableBackground = false }) => {
       <Image
         loading='lazy'
         src='/images/hero-mobile.svg'
-        alt='Landing Image'
+        alt='Hero Image'
         width={1}
         height={1}
         className={`bottom-0 w-full aspect-square object-cover lg:hidden ${
@@ -30,4 +30,4 @@ const LandingImage = ({ disableBackground = false }) => {
   );
 };
 
-export default LandingImage;
+export default HeroImage;

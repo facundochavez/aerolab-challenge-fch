@@ -72,7 +72,7 @@ export const addUserPoints = createAsyncThunk(
       }
 
       const data = await response.json();
-      showToast('success', String(points + ' points'), ' added successfully!');
+      showToast('success', String(points + ' points'), ' added successfully');
       return data;
     } catch (error) {
       console.log(error instanceof Error ? error.message : 'Unknown error');

@@ -24,6 +24,7 @@ const ProductsFilter = () => {
 
   const { categories, setFilterCategory, filterCategory } =
     useProductsContext();
+    
   return (
     <div className='flex items-center gap-3'>
       <p className='l1-text-lightweight hidden xl:flex'>Filter by:</p>

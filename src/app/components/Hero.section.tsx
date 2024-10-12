@@ -1,10 +1,10 @@
 'use client';
-import LandingImage from '@/components/LandingImage/LandingImage';
+import HeroImage from '@/components/HeroImage/HeroImage';
 import { Button } from '@/components/ui/button';
 import scrollToProductsSection from '@/utils/scrollToProductsSection';
 import Image from 'next/image';
 
-const LandingSection = () => {
+const HeroSection = () => {
 
 
   return (
@@ -34,10 +34,10 @@ const LandingSection = () => {
         </Button>
       </div>
       <aside className='hidden lg:flex w-full pl-[8%] -translate-y-10 xl:translate-y-0'>
-        <LandingImage />
+        <HeroImage />
       </aside>
     </section>
   );
 };
 
-export default LandingSection;
+export default HeroSection;

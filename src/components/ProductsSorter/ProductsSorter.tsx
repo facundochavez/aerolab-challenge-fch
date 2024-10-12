@@ -3,6 +3,7 @@ import SortBadge from './SortBadge/SortBadge';
 import { SortOption } from '@/types';
 import { Separator } from '@/components/ui/separator';
 import { useEffect, useState } from 'react';
+import sortOptionsDataRaw from '@/data/sortOptions.data.json';
 
 const ProductsSorter = () => {
   const [hasMounted, setHasMounted] = useState(false);
@@ -15,26 +16,7 @@ const ProductsSorter = () => {
     return null;
   }
 
-  const sortOptions = [
-    {
-      id: 'date',
-      label: 'Date',
-      downText: 'Most Recent',
-      upText: 'Most Ancient',
-    },
-    {
-      id: 'price',
-      label: 'Price',
-      downText: 'Lowest Price',
-      upText: 'Highest Price',
-    },
-    {
-      id: 'name',
-      label: 'Name',
-      downText: 'From A to Z',
-      upText: 'Form Z to A',
-    },
-  ] as SortOption[];
+  const sortOptions = sortOptionsDataRaw as SortOption[];
 
   return (
     <div className='flex items-center gap-2'>

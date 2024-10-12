@@ -2,7 +2,7 @@ import { WalkthroughStep } from '@/types';
 import walkthroughStepsDataRaw from '@/data/walkthroughSteps.data.json';
 import WalkthroughCard from '@/components/WalkthroughCard/WalkthroughCard';
 import Image from 'next/image';
-import LandingImage from '@/components/LandingImage/LandingImage';
+import HeroImage from '@/components/HeroImage/HeroImage';
 
 const WalkthroughSection = () => {
   const walkthroughStepsData = walkthroughStepsDataRaw as WalkthroughStep[];
@@ -17,7 +17,7 @@ const WalkthroughSection = () => {
       />
       <div className='absolute inset-0 w-full h-full bg-gradient-to-r from-special-section-bg-opacity50-1 to-special-section-bg-opacity50-2 opacity-50' />
       <div className='z-10 min-w-[580px] -mb-10 -mt-[130px] md:-mt-[350px] lg:hidden'>
-        <LandingImage disableBackground />
+        <HeroImage disableBackground />
       </div>
       <ul className='z-10 w-full h-full max-w-[1464px] flex flex-row-reverse flex-wrap-reverse items-center justify-center gap-4 pb-10 pt-0 lg:hidden'>
         {walkthroughStepsData

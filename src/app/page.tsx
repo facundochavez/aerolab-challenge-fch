@@ -1,4 +1,4 @@
-import LandingSection from './components/Landing.section';
+import HeroSection from './components/Hero.section';
 import ProductsSection from './components/Products.section';
 import WalkthroughSection from './components/Walkthrough.section';
 import { ProductsProvider } from '@/context/products.context';
@@ -6,7 +6,7 @@ import { ProductsProvider } from '@/context/products.context';
 export default function Home() {
   return (
     <>
-      <LandingSection />
+      <HeroSection />
       <WalkthroughSection />
       <ProductsProvider>
         <ProductsSection />
