@@ -38,7 +38,7 @@ const PointsButton = () => {
       dispatch(fetchUser());
     }
   };
-  
+
   return (
     <DropdownMenu
       open={isDropdownOpen}
@@ -46,7 +46,9 @@ const PointsButton = () => {
     >
       <DropdownMenuTrigger asChild>
         <Button variant='secondary'>
-          {!user.points || user.status === 'loading' || user.status === 'processing' ? (
+          {!user.points ||
+          user.status === 'loading' ||
+          user.status === 'processing' ? (
             <LoaderCircle className='h-6 w-6 animate-spin text-brand-default-1' />
           ) : (
             <Image
@@ -114,14 +116,20 @@ const PointsButton = () => {
           disabled={selectedIndex === undefined}
           onClick={handleAddPoints}
         >
-          <Image
-            src='/icons/icon-aerolab-white.svg'
-            alt='icon-aerolab'
-            width={1}
-            height={1}
-            className='w-5 lg:w-6 h-5 lg:h-6'
-          />
-          <span className='l1-text-default text-white'>Add Points</span>
+          {selectedIndex === undefined ? (
+            <span className='l1-text-default text-white'>Select Amount</span>
+          ) : (
+            <>
+              <Image
+                src='/icons/icon-aerolab-white.svg'
+                alt='icon-aerolab'
+                width={1}
+                height={1}
+                className='w-5 lg:w-6 h-5 lg:h-6'
+              />
+              <span className='l1-text-default text-white'>Add Points</span>
+            </>
+          )}
         </Button>
       </DropdownMenuContent>
     </DropdownMenu>

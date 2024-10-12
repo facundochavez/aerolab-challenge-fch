@@ -25,7 +25,7 @@ const Header = () => {
   return (
     <header
       className={`z-20 w-screen h-20 lg:h-32 px-[5%] flex justify-center fixed border-b border-transparent backdrop-blur-xl ${
-        !isScrollOnTop && ' !border-neutral-300'
+        !isScrollOnTop ? ' !border-neutral-300' : ''
       }`}
     >
       <div className='absolute inset-0 w-full h-full bg-neutral-0 opacity-30'></div>

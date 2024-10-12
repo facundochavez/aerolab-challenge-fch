@@ -7,6 +7,7 @@ const WalkthroughCard = ({ step }: { step: WalkthroughStep }) => {
       <div className='w-full h-full rounded-[20px] border-neutral-300 border overflow-hidden bg-neutral-0'>
         <header className='w-full h-[200px] bg-gradient-to-br from-special-illustration-bg-1 to-special-illustration-bg-2 lg:h-[300px] xl:h-[500px]'>
           <Image
+            loading='lazy'
             src={step.imageDesktop}
             alt={step.title}
             width={1}
@@ -14,6 +15,7 @@ const WalkthroughCard = ({ step }: { step: WalkthroughStep }) => {
             className='w-full h-full object-cover hidden lg:flex'
           />
           <Image
+            loading='lazy'
             src={step.imageMobile}
             alt={step.title}
             width={1}
@@ -38,8 +40,18 @@ const WalkthroughCard = ({ step }: { step: WalkthroughStep }) => {
               {step.position}—{step.title}
             </h2>
           </header>
-          <div className={`relative w-full xs:h-[72px] ${step.position !== 3 && 'lg:pr-[calc(240px-15vw)] xl:pr-[calc(360px-15vw)]'}`}>
-            <p className={`xs:absolute l1-text-default text-neutral-600 flex lg:relative ${ step.position !== 3 && 'xl:max-w-[370px]'}`}>
+          <div
+            className={`relative w-full xs:h-[72px] ${
+              step.position !== 3
+                ? 'lg:pr-[calc(240px-15vw)] xl:pr-[calc(360px-15vw)]'
+                : ''
+            }`}
+          >
+            <p
+              className={`xs:absolute l1-text-default text-neutral-600 flex lg:relative ${
+                step.position !== 3 ? 'xl:max-w-[370px]' : ''
+              }`}
+            >
               {step.description}
             </p>
           </div>

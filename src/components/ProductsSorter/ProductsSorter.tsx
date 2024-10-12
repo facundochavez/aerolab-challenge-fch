@@ -1,8 +1,20 @@
+'use client';
 import SortBadge from './SortBadge/SortBadge';
 import { SortOption } from '@/types';
 import { Separator } from '@/components/ui/separator';
+import { useEffect, useState } from 'react';
 
 const ProductsSorter = () => {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null;
+  }
+
   const sortOptions = [
     {
       id: 'date',
@@ -22,7 +34,7 @@ const ProductsSorter = () => {
     <div className='flex items-center gap-2'>
       <Separator
         orientation='vertical'
-        className='mx-2 h-[59px] border-[1.5px] border-neutral-300 hidden xl:flex'
+        className='mx-2 h-[60px] border-[1.5px] border-neutral-300 hidden xl:flex'
       />
       <p className='l1-text-lightweight mr-2 hidden xl:flex'>Sort by:</p>
       {sortOptions.map((option) => (

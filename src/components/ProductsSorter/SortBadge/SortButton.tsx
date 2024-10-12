@@ -18,12 +18,14 @@ const SortButton: React.FC<SortButtonProps> = ({
       onClick={onClick}
       variant={`${isSorting ? 'selected' : 'selector'}`}
     >
-      <Image 
+      <Image
         src={`/icons/arrow-down.svg`}
         alt={`${direction} icon`}
         width={1}
         height={1}
-        className={`w-[28px] h-[28px] ${direction === 'up' && 'rotate-180'} ${isSorting && 'brightness-200'} `}
+        className={`w-[28px] h-[28px] ${direction === 'up' ? 'rotate-180' : ''} ${
+          isSorting ? 'brightness-200' : ''
+        } `}
       />
     </Button>
   );

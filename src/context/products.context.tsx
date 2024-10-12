@@ -1,6 +1,10 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { showToast } from '@/utils/showToast';
+import {
+  getFromLocalStorage,
+  saveToLocalStorage,
+} from '@/utils/localStorageUtils';
 
 interface Product {
   _id: string;
@@ -14,13 +18,18 @@ interface Product {
 }
 
 interface ProductsContextProps {
-  products: Product[] | null;
-  sortedBy: 'price' | 'date';
-  setSortedBy: React.Dispatch<React.SetStateAction<'price' | 'date'>>;
-  sortDirection: 'up' | 'down';
-  setSortDirection: React.Dispatch<React.SetStateAction<'up' | 'down'>>;
+  groupedProducts: Product[][];
+  orderBy: 'price' | 'date';
+  setOrderBy: React.Dispatch<React.SetStateAction<'price' | 'date'>>;
+  orderDirection: 'up' | 'down';
+  setOrderDirection: React.Dispatch<React.SetStateAction<'up' | 'down'>>;
   selectedProductId: string | null;
   setSelectedProductId: React.Dispatch<React.SetStateAction<string | null>>;
+  categories: string[];
+  filterCategory: string;
+  setFilterCategory: React.Dispatch<React.SetStateAction<string>>;
+  currentProductsPage: number;
+  setCurrentProductsPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const ProductsContext = createContext<ProductsContextProps | undefined>(
@@ -32,25 +41,40 @@ interface ProductsProviderProps {
 }
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
-  const INITIAL_PRODUCTS = Array.from(
-    { length: 6 },
-    (_) =>
-      ({
-        _id: '',
-        name: '',
-        cost: 0,
-        category: '',
-        img: { url: '', hdUrl: '' },
-      } as Product)
-  );
-  const [products, setProducts] = useState<Product[]>(INITIAL_PRODUCTS);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [orderedProducts, setOrderedProducts] = useState<Product[]>([]);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(
     null
   );
-  const [sortedBy, setSortedBy] = useState<'price' | 'date'>('date');
-  const [sortDirection, setSortDirection] = useState<'up' | 'down'>('up');
+  const [currentProductsPage, setCurrentProductsPage] = useState(1);
 
-  // FETCHING PRODUCTS THE FIRST TIME
+  // INITIALIZE CONTEXT VALUES
+  const [orderBy, setOrderBy] = useState<'price' | 'date'>(
+    () => getFromLocalStorage('orderBy', 'date') as 'price' | 'date'
+  );
+  const [orderDirection, setOrderDirection] = useState<'up' | 'down'>(
+    () => getFromLocalStorage('orderDirection', 'up') as 'up' | 'down'
+  );
+  const [filterCategory, setFilterCategory] = useState<string>(() =>
+    getFromLocalStorage('filterCategory', '')
+  );
+  const [categories, setCategories] = useState<string[]>([]);
+
+  // SAVE VALUES TO LOCALSTORAGE
+  useEffect(() => {
+    saveToLocalStorage('orderBy', orderBy);
+  }, [orderBy]);
+
+  useEffect(() => {
+    saveToLocalStorage('orderDirection', orderDirection);
+  }, [orderDirection]);
+
+  useEffect(() => {
+    saveToLocalStorage('filterCategory', filterCategory);
+  }, [filterCategory]);
+
+  // FETCH PRODUCTS THE FIRST TIME
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -82,33 +106,103 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
     fetchProducts();
   }, []);
 
-  
-
-/*   // SORTING PRODUCTS
-  const sortedProducts = products
-    ? [...products].sort((a, b) => {
-        if (sortedBy === 'price') {
-          return sortDirection === 'up'
-            ? a.cost - b.cost
-            : b.cost - a.cost;
-        } else {
-          return sortDirection === 'up'
-            ? new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-            : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  // GET CATEGORIES
+  useEffect(() => {
+    if (products) {
+      const uniqueCategories = [
+        ...new Set(products.map((product) => product.category)),
+      ];
+      uniqueCategories.sort((a, b) => {
+        if (a < b) {
+          return -1;
         }
-      })
-    : []; */
+        if (a > b) {
+          return 1;
+        }
+        return 0;
+      });
+      setCategories(uniqueCategories);
+    }
+  }, [products]);
+
+  // FILTER PRODUCTS
+  const INITIAL_PRODUCTS = Array.from(
+    { length: 6 },
+    (_) =>
+      ({
+        _id: '',
+        name: '',
+        cost: 0,
+        category: '',
+        img: { url: '', hdUrl: '' },
+      } as Product)
+  );
+
+  useEffect(() => {
+    const handleFilter = () => {
+      if (!products) {
+        setFilteredProducts(INITIAL_PRODUCTS);
+      } else if (filterCategory === 'All Products' || filterCategory === '') {
+        setFilteredProducts(products);
+      } else {
+        setFilteredProducts(
+          products.filter((product) => product.category === filterCategory)
+        );
+      }
+    };
+
+    handleFilter();
+  }, [filterCategory, products]);
+
+  // ORDER PRODUCTS
+  useEffect(() => {
+    const handleOrder = () => {
+      if (orderBy === 'price') {
+        const sorted = [...filteredProducts].sort((a, b) => {
+          if (orderDirection === 'down') {
+            return a.cost - b.cost;
+          } else {
+            return b.cost - a.cost;
+          }
+        });
+        setOrderedProducts(sorted);
+      } else {
+        const sorted =
+          orderDirection === 'up'
+            ? [...filteredProducts]
+            : [...filteredProducts].reverse();
+        setOrderedProducts(sorted);
+      }
+    };
+
+    handleOrder();
+  }, [orderBy, orderDirection, filteredProducts]);
+
+  // PAGINATE PRODUCTS
+  const groupedProducts = orderedProducts
+    ? orderedProducts.reduce((acc, _, index) => {
+        if (index % 16 === 0) {
+          acc.push(orderedProducts.slice(index, index + 16));
+        }
+        return acc;
+      }, [] as Product[][])
+    : [];
 
   return (
     <ProductsContext.Provider
       value={{
-        products,
-        sortedBy,
-        setSortedBy,
-        sortDirection,
-        setSortDirection,
+        groupedProducts,
+        orderBy,
+        setOrderBy,
+        orderDirection,
+        setOrderDirection,
         selectedProductId,
         setSelectedProductId,
+        categories,
+        filterCategory,
+        setFilterCategory,
+        currentProductsPage,
+        setCurrentProductsPage,
       }}
     >
       {children}

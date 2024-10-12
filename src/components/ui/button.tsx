@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-brand-gradient [&>span]:text-neutral-0 hover:bg-primary/90',
         disabled:
-          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-neutral-200 [&>span]:text-neutral-600 cursor-not-allowed',
+          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-neutral-200 [&>span]:text-neutral-600 cursor-auto',
         processing:
           '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-brand-gradient opacity-70 [&>span]:text-neutral-0 bg-opacity-70 cursor-auto',
         destructive:
@@ -27,6 +27,8 @@ const buttonVariants = cva(
           '!px-1 !rounded-xl bg-[#E5F0FF] drop-shadow-none hover:opacity-85',
         selected:
           '!px-1 !rounded-xl bg-brand-gradient drop-shadow-none [&>span]:text-neutral-0',
+        pagination:
+          '!px-1 !rounded-xl w-[36px] h-[36px] lg:w-[40px] lg:h-[40px] bg-brand-light hover:opacity-80 disabled:!opacity-100 disabled:bg-neutral-200',
       },
       size: {
         default: 'h-9 px-4 py-2',

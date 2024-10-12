@@ -27,14 +27,14 @@ const RedeemButton = ({
 
   if (!productId) {
     return (
-      <Skeleton className='w-full min-h-[56px] xl:min-h-[59px] rounded-[14px] lg:rounded-[16px]' />
+      <Skeleton className='w-full min-h-[56px] xl:min-h-[60px] rounded-[14px] lg:rounded-[16px]' />
     );
   }
 
   if (cost > (user.points || Infinity)) {
     return (
       <Button
-        className='w-full min-h-[56px] xl:min-h-[59px] l1-text-default'
+        className='w-full min-h-[56px] xl:min-h-[60px] l1-text-default'
         variant='disabled'
       >
         <span>You need</span>
@@ -55,7 +55,7 @@ const RedeemButton = ({
       <Button
         onMouseEnter={() => setIsButtonHovered(true)}
         onMouseLeave={() => setIsButtonHovered(false)}
-        className='w-full min-h-[56px] xl:min-h-[59px] l1-text-default opacity-70'
+        className='w-full min-h-[56px] xl:min-h-[60px] l1-text-default opacity-70'
       >
         <LoaderCircle className='h-6 w-6 mr-1 animate-spin text-neutral-0' />
         <span>Processing...</span>
@@ -67,7 +67,7 @@ const RedeemButton = ({
     <Button
       onMouseEnter={() => setIsButtonHovered(true)}
       onMouseLeave={() => setIsButtonHovered(false)}
-      className='w-full min-h-[56px] xl:min-h-[59px] l1-text-default'
+      className='w-full min-h-[56px] xl:min-h-[60px] l1-text-default'
       variant='default'
       onClick={() => {
         setSelectedProductId(productId);

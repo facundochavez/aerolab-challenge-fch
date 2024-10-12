@@ -31,7 +31,7 @@ const Footer = () => {
             className='w-6 h-6 lg:w-8 lg:h-8 mb-1'
           />
         )}
-        <span className={`${isLinkHovered && 'text-brand-gradient'}`}>
+        <span className={`${isLinkHovered ? 'text-brand-gradient' : ''}`}>
           View this repository
         </span>
       </a>

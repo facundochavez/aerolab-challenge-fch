@@ -56,7 +56,13 @@ const SelectScrollUpButton = React.forwardRef<
     )}
     {...props}
   >
-    <ChevronUpIcon />
+    <Image
+        src='/icons/chevron-right.svg'
+        alt='icon-chevron'
+        width={1}
+        height={1}
+        className='w-5 lg:w-6 h-5 lg:h-6 rotate-[-90deg]'
+      />
   </SelectPrimitive.ScrollUpButton>
 ));
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
@@ -73,7 +79,13 @@ const SelectScrollDownButton = React.forwardRef<
     )}
     {...props}
   >
-    <ChevronDownIcon />
+    <Image
+        src='/icons/chevron-right.svg'
+        alt='icon-chevron'
+        width={1}
+        height={1}
+        className='w-5 lg:w-6 h-5 lg:h-6 rotate-[90deg]'
+      />
   </SelectPrimitive.ScrollDownButton>
 ));
 SelectScrollDownButton.displayName =
