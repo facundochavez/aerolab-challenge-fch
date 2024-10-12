@@ -28,21 +28,27 @@ const ProductsSorter = () => {
       upText: 'Highest Price',
       downText: 'Lowest Price',
     },
+    {
+      id: 'name',
+      label: 'Name',
+      upText: 'From A to Z',
+      downText: 'Form Z to A',
+    }
   ] as SortOption[];
 
   return (
     <div className='flex items-center gap-2'>
       <Separator
         orientation='vertical'
-        className='mx-2 h-[60px] border-[1.5px] border-neutral-300 hidden xl:flex'
+        className='mx-2 h-[60px] border-[1.5px] border-neutral-300 hidden xxl:flex'
       />
-      <p className='l1-text-lightweight mr-2 hidden xl:flex'>Sort by:</p>
+      <p className='l1-text-lightweight mr-2 hidden xxl:flex'>Sort by:</p>
       {sortOptions.map((option) => (
         <>
           <SortBadge sortOption={option} />
         </>
       ))}
-      <div className='min-w-4 h-10 xl:hidden'></div>
+      <div className='min-w-4 h-10 xxl:hidden'></div>
     </div>
   );
 };

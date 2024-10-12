@@ -8,7 +8,7 @@ export type WalkthroughStep = {
 };
 
 export type SortOption = {
-  id: 'price' | 'date';
+  id: 'price' | 'date' | 'name';
   label: string;
   upText: string;
   downText: string;

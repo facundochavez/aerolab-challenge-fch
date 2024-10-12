@@ -1,18 +1,34 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useProductsContext } from '@/context/products.context';
+import scrollToProductsSection from '@/utils/scrollToProductsSection';
 
 const ProductsPagination = () => {
+  const [hasMounted, setHasMounted] = useState(false);
   const { currentProductsPage, setCurrentProductsPage, totalProductsPages } =
     useProductsContext();
   const isPrevDisabled = currentProductsPage === 1;
   const isNextDisabled = currentProductsPage === totalProductsPages;
 
+  useEffect(() => {
+    if (!hasMounted) {
+      setHasMounted(true);
+    } else {
+      scrollToProductsSection();
+    }
+  }, [currentProductsPage]);
+
   return (
     <div className='flex items-center gap-4 h-[60px] rounded-[14px] lg:rounded-[16px] border border-neutral-300 p-2'>
-      <Button variant='pagination' disabled={isPrevDisabled} onClick={() => setCurrentProductsPage(currentProductsPage - 1)}>
+      <Button
+        variant='pagination'
+        disabled={isPrevDisabled}
+        onClick={() => {
+          setCurrentProductsPage(currentProductsPage - 1);
+        }}
+      >
         <Image
           src='/icons/chevron-right.svg'
           alt='icon-chevron-prev'
@@ -22,9 +38,16 @@ const ProductsPagination = () => {
         />
       </Button>
       <p className='l1-text-default'>
-        Page <span className='text-brand-gradient'>{currentProductsPage} of {totalProductsPages}</span>
+        Page{' '}
+        <span className='text-brand-gradient'>
+          {currentProductsPage} of {totalProductsPages}
+        </span>
       </p>
-      <Button variant='pagination' disabled={isNextDisabled} onClick={() => setCurrentProductsPage(currentProductsPage + 1)}>
+      <Button
+        variant='pagination'
+        disabled={isNextDisabled}
+        onClick={() => setCurrentProductsPage(currentProductsPage + 1)}
+      >
         <Image
           src='/icons/chevron-right.svg'
           alt='icon-chevron-next'

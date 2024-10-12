@@ -12,6 +12,7 @@ const config: Config = {
       screens: {
         xs: '370px',
         lg: '1025px',
+        xxl: '1490px',
       },
       colors: {
         'neutral-900': 'hsl(var(--neutral-900))',

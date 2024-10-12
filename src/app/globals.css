@@ -256,7 +256,7 @@ body {
   scrollbar-width: none;
 }
 
-@media screen and (min-width: 435px) {
+@media screen and (min-width: 630px) {
   .scroll-area-mask {
     mask-image: none;
   }

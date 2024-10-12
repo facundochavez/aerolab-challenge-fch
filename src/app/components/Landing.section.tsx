@@ -1,23 +1,11 @@
 'use client';
 import LandingImage from '@/components/LandingImage/LandingImage';
 import { Button } from '@/components/ui/button';
+import scrollToProductsSection from '@/utils/scrollToProductsSection';
 import Image from 'next/image';
 
 const LandingSection = () => {
-  const handleScroll = () => {
-    const section = document.getElementById('products-section');
 
-    if (section) {
-      const yOffset = window.innerWidth > 1024 ? 0 : -30;
-      const yPosition =
-        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({
-        top: yPosition,
-        behavior: 'smooth',
-      });
-    }
-  };
 
   return (
     <section className='w-full flex flex-col items-center lg:flex-row max-w-[1464px] pt-[90px] lg:pt-[110px]'>
@@ -33,7 +21,7 @@ const LandingSection = () => {
         </p>
         <Button
           className='min-h-16 lg:min-h-20 px-10 mt-8 !rounded-[24px]'
-          onClick={handleScroll}
+          onClick={scrollToProductsSection}
         >
           <span className='l1-text-allcaps'>View all products</span>
           <Image

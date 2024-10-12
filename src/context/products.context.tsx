@@ -19,8 +19,8 @@ interface Product {
 
 interface ProductsContextProps {
   groupedProducts: Product[][];
-  orderBy: 'price' | 'date';
-  setOrderBy: React.Dispatch<React.SetStateAction<'price' | 'date'>>;
+  orderBy:  'date' | 'price' | 'name';
+  setOrderBy: React.Dispatch<React.SetStateAction<'date' | 'price' | 'name'>>;
   orderDirection: 'up' | 'down';
   setOrderDirection: React.Dispatch<React.SetStateAction<'up' | 'down'>>;
   selectedProductId: string | null;
@@ -52,7 +52,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   );
 
   // INITIALIZE CONTEXT VALUES
-  const [orderBy, setOrderBy] = useState<'price' | 'date'>(
+  const [orderBy, setOrderBy] = useState<'date' | 'price' | 'name'>(
     () => getFromLocalStorage('orderBy', 'date') as 'price' | 'date'
   );
   const [orderDirection, setOrderDirection] = useState<'up' | 'down'>(
@@ -159,27 +159,43 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   // ORDER PRODUCTS
   useEffect(() => {
     const handleOrder = () => {
-      if (orderBy === 'price') {
-        const sorted = [...filteredProducts].sort((a, b) => {
-          if (orderDirection === 'down') {
-            return a.cost - b.cost;
-          } else {
-            return b.cost - a.cost;
-          }
-        });
-        setOrderedProducts(sorted);
-      } else {
-        const sorted =
-          orderDirection === 'up'
-            ? [...filteredProducts]
-            : [...filteredProducts].reverse();
-        setOrderedProducts(sorted);
+      let sorted;
+
+      switch (orderBy) {
+        case 'price':
+          sorted = [...filteredProducts].sort((a, b) => {
+            if (orderDirection === 'down') {
+              return a.cost - b.cost;
+            } else {
+              return b.cost - a.cost;
+            }
+          });
+          break;
+
+        case 'name':
+          sorted = [...filteredProducts].sort((a, b) => {
+            if (orderDirection === 'up') {
+              return a.name.localeCompare(b.name); // A-Z
+            } else {
+              return b.name.localeCompare(a.name); // Z-A
+            }
+          });
+          break;
+
+        case 'date':
+          sorted =
+            orderDirection === 'up'
+              ? [...filteredProducts]
+              : [...filteredProducts].reverse();
+          setOrderedProducts(sorted);
+          break;
       }
+
+      setOrderedProducts(sorted);
     };
 
     handleOrder();
   }, [orderBy, orderDirection, filteredProducts]);
-
 
   // PAGINATE PRODUCTS
   const groupedProducts = orderedProducts
@@ -190,13 +206,14 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         return acc;
       }, [] as Product[][])
     : [];
-  
-    const totalProductsPages = groupedProducts.length;
-    const [currentProductsPage, setCurrentProductsPage] = useState(1);
 
-    useEffect(() => {
-      setCurrentProductsPage(1);
-    }, [filterCategory, orderBy, orderDirection, selectedProductId]);
+  const totalProductsPages = groupedProducts?.length || 0;
+  const [currentProductsPage, setCurrentProductsPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentProductsPage(1);
+  }, [filterCategory, orderBy, orderDirection, selectedProductId]);
+
 
 
   return (
@@ -215,7 +232,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         currentProductsPage,
         setCurrentProductsPage,
         totalProductsPages,
-        orderedProductsLen
+        orderedProductsLen,
       }}
     >
       {children}
