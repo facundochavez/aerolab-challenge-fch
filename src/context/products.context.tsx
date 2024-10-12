@@ -174,7 +174,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
 
         case 'name':
           sorted = [...filteredProducts].sort((a, b) => {
-            if (orderDirection === 'up') {
+            if (orderDirection === 'down') {
               return a.name.localeCompare(b.name); // A-Z
             } else {
               return b.name.localeCompare(a.name); // Z-A
@@ -184,7 +184,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
 
         case 'date':
           sorted =
-            orderDirection === 'up'
+            orderDirection === 'down'
               ? [...filteredProducts]
               : [...filteredProducts].reverse();
           setOrderedProducts(sorted);

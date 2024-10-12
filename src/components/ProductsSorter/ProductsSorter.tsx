@@ -19,21 +19,21 @@ const ProductsSorter = () => {
     {
       id: 'date',
       label: 'Date',
-      upText: 'Most Recent',
-      downText: 'Most Ancient',
+      downText: 'Most Recent',
+      upText: 'Most Ancient',
     },
     {
       id: 'price',
       label: 'Price',
-      upText: 'Highest Price',
       downText: 'Lowest Price',
+      upText: 'Highest Price',
     },
     {
       id: 'name',
       label: 'Name',
-      upText: 'From A to Z',
-      downText: 'Form Z to A',
-    }
+      downText: 'From A to Z',
+      upText: 'Form Z to A',
+    },
   ] as SortOption[];
 
   return (
@@ -44,11 +44,9 @@ const ProductsSorter = () => {
       />
       <p className='l1-text-lightweight mr-2 hidden xxl:flex'>Sort by:</p>
       {sortOptions.map((option) => (
-        <>
-          <SortBadge sortOption={option} />
-        </>
+        <SortBadge sortOption={option} />
       ))}
-      <div className='min-w-4 h-10 xxl:hidden'></div>
+      <div className='min-w-10 h-10 xxl:hidden'></div>
     </div>
   );
 };
