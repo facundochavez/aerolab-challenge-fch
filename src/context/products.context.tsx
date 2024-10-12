@@ -82,6 +82,23 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
     fetchProducts();
   }, []);
 
+  
+
+/*   // SORTING PRODUCTS
+  const sortedProducts = products
+    ? [...products].sort((a, b) => {
+        if (sortedBy === 'price') {
+          return sortDirection === 'up'
+            ? a.cost - b.cost
+            : b.cost - a.cost;
+        } else {
+          return sortDirection === 'up'
+            ? new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+            : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+        }
+      })
+    : []; */
+
   return (
     <ProductsContext.Provider
       value={{

@@ -5,9 +5,12 @@ import ProductsPagination from '@/components/ProductsPagination/ProductsPaginati
 import ProductsSorter from '@/components/ProductsSorter/ProductsSorter';
 import RedeemButton from '@/components/RedeemButton/RedeemButton';
 import { useProductsContext } from '@/context/products.context';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/types';
 
 const ProductsSection = () => {
   const { products } = useProductsContext();
+  const user = useSelector((state: RootState) => state.user);
 
   return (
     <section
@@ -33,12 +36,20 @@ const ProductsSection = () => {
           </div>
         </nav>
       </header>
-      <ul className='w-full max-w-[1464px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10'>
+      <ul
+        className={`w-full max-w-[1464px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-10 ${
+          user?.status === 'processing' && 'pointer-events-none'
+        }`}
+      >
         {products?.map((product) => {
           return (
             <li key={product._id} className='w-full flex flex-col gap-4'>
               <ProductCard product={product} />
-              <RedeemButton cost={product.cost} productId={product._id} />
+              <RedeemButton
+                cost={product.cost}
+                productId={product._id}
+                productName={product.name}
+              />
             </li>
           );
         })}

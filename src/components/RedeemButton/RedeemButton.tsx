@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { AppDispatch, ProductCardState, RootState } from '@/types';
+import { AppDispatch, RootState } from '@/types';
 import formatedNumber from '@/utils/formatedNumber';
 import { LoaderCircle } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -13,9 +13,11 @@ import { useDispatch, useSelector } from 'react-redux';
 const RedeemButton = ({
   cost,
   productId,
+  productName,
 }: {
   cost: number;
   productId: string;
+  productName: string;
 }) => {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const { selectedProductId, setSelectedProductId } = useProductsContext();
@@ -69,7 +71,7 @@ const RedeemButton = ({
       variant='default'
       onClick={() => {
         setSelectedProductId(productId);
-        dispatch(redeemProduct({ productId, productName: 'Product Name' }));
+        dispatch(redeemProduct({ productId, productName, cost }));
       }}
     >
       <span>{isButtonHovered ? 'Redeem now for' : 'Redeem for'}</span>

@@ -37,5 +37,5 @@ export interface User {
   points: number | undefined;
   redeemHistory: any[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed' | 'processing' | undefined;
-  error: string | undefined;
+
 }

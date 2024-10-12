@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { showToast } from '@/utils/showToast';
-import { User } from '@/types';
+import { User, AppDispatch, RootState } from '@/types';
 
 const initialState: User = {
   id: null,
@@ -8,7 +8,6 @@ const initialState: User = {
   points: undefined,
   redeemHistory: [],
   status: 'idle',
-  error: undefined,
 };
 
 export const fetchUser = createAsyncThunk('user/fetchUser', async () => {
@@ -83,15 +82,27 @@ export const addUserPoints = createAsyncThunk(
   }
 );
 
-export const redeemProduct = createAsyncThunk(
+interface RedeemProductArgs {
+  productId: string;
+  productName: string;
+  cost: number;
+}
+
+export const redeemProduct = createAsyncThunk<
+  any,
+  RedeemProductArgs,
+  { state: RootState }
+>(
   'user/redeemProduct',
-  async ({
-    productId,
-    productName,
-  }: {
-    productId: string;
-    productName: string;
-  }) => {
+  async ({ productId, productName, cost }, { dispatch, getState }) => {
+    const state = getState();
+    const user = state.user;
+    dispatch(
+      updateUser({
+        ...user,
+        status: 'processing',
+      })
+    );
     try {
       const response = await fetch(
         'https://coding-challenge-api.aerolab.co/redeem',
@@ -113,13 +124,24 @@ export const redeemProduct = createAsyncThunk(
         const errorMessage =
           errorData.message ||
           `Error ${response.status}: ${response.statusText}`;
-
-        fetchUser();
         showToast('error', '', 'There was a problem with the transaction');
         throw new Error(errorMessage);
       }
 
       const data = await response.json();
+
+      if (user.points !== undefined) {
+        dispatch(
+          updateUser({
+            ...user,
+            points: user.points - cost,
+            status: 'succeeded',
+          })
+        );
+      }
+
+      console.log(data);
+
       showToast('success', productName, ' redeemed successfully');
       return data;
     } catch (error) {
@@ -133,7 +155,14 @@ export const redeemProduct = createAsyncThunk(
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    updateUser: (state, action) => {
+      state.name = action.payload.name;
+      state.points = action.payload.points;
+      state.redeemHistory = action.payload.redeemHistory;
+      state.status = action.payload.status;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.pending, (state) => {
@@ -148,7 +177,6 @@ const userSlice = createSlice({
       })
       .addCase(fetchUser.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message;
       })
       .addCase(addUserPoints.pending, (state) => {
         state.status = 'loading';
@@ -159,19 +187,18 @@ const userSlice = createSlice({
       })
       .addCase(addUserPoints.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message;
       })
       .addCase(redeemProduct.pending, (state) => {
         state.status = 'processing';
       })
-      .addCase(redeemProduct.fulfilled, (state, action) => {
+      .addCase(redeemProduct.fulfilled, (state) => {
         state.status = 'succeeded';
       })
       .addCase(redeemProduct.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message;
       });
   },
 });
 
+export const { updateUser } = userSlice.actions;
 export default userSlice.reducer;

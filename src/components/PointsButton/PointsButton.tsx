@@ -31,14 +31,14 @@ const PointsButton = () => {
     }
   }, [user]);
 
-  // Función para manejar el agregar puntos
   const handleAddPoints = () => {
     if (selectedIndex !== undefined) {
       const pointsToAdd = addNumbers[selectedIndex];
       dispatch(addUserPoints(pointsToAdd));
+      dispatch(fetchUser());
     }
   };
-
+  
   return (
     <DropdownMenu
       open={isDropdownOpen}
@@ -46,7 +46,7 @@ const PointsButton = () => {
     >
       <DropdownMenuTrigger asChild>
         <Button variant='secondary'>
-          {!user.points || user.status === 'loading' ? (
+          {!user.points || user.status === 'loading' || user.status === 'processing' ? (
             <LoaderCircle className='h-6 w-6 animate-spin text-brand-default-1' />
           ) : (
             <Image
