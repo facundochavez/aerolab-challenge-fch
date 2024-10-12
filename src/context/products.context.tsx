@@ -19,7 +19,7 @@ interface Product {
 
 interface ProductsContextProps {
   groupedProducts: Product[][];
-  orderBy:  'date' | 'price' | 'name';
+  orderBy: 'date' | 'price' | 'name';
   setOrderBy: React.Dispatch<React.SetStateAction<'date' | 'price' | 'name'>>;
   orderDirection: 'up' | 'down';
   setOrderDirection: React.Dispatch<React.SetStateAction<'up' | 'down'>>;
@@ -128,23 +128,11 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   }, [products]);
 
   // FILTER PRODUCTS
-  const INITIAL_PRODUCTS = Array.from(
-    { length: 6 },
-    (_) =>
-      ({
-        _id: '',
-        name: '',
-        cost: 0,
-        category: '',
-        img: { url: '', hdUrl: '' },
-      } as Product)
-  );
 
   useEffect(() => {
     const handleFilter = () => {
-      if (!products) {
-        setFilteredProducts(INITIAL_PRODUCTS);
-      } else if (filterCategory === 'All Products' || filterCategory === '') {
+      if (!products) return;
+      if (filterCategory === 'All Products' || filterCategory === '') {
         setFilteredProducts(products);
       } else {
         setFilteredProducts(
@@ -198,14 +186,36 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   }, [orderBy, orderDirection, filteredProducts]);
 
   // PAGINATE PRODUCTS
-  const groupedProducts = orderedProducts
-    ? orderedProducts.reduce((acc, _, index) => {
-        if (index % 16 === 0) {
-          acc.push(orderedProducts.slice(index, index + 16));
-        }
-        return acc;
-      }, [] as Product[][])
-    : [];
+  const INITIAL_PRODUCTS = Array.from(
+    { length: 8 },
+    (_) =>
+      ({
+        _id: '',
+        name: '',
+        cost: 0,
+        category: '',
+        img: { url: '', hdUrl: '' },
+      } as Product)
+  );
+  const [groupedProducts, setGroupedProducts] = useState<Product[][]>([
+    INITIAL_PRODUCTS,
+  ]);
+
+  useEffect(() => {
+    const handleGroupProducts = () => {
+      if (orderedProducts.length > 0) {
+        const grouped = orderedProducts.reduce((acc, _, index) => {
+          if (index % 16 === 0) {
+            acc.push(orderedProducts.slice(index, index + 16));
+          }
+          return acc;
+        }, [] as Product[][]);
+        setGroupedProducts([...grouped]);
+      }
+    };
+
+    handleGroupProducts();
+  }, [orderedProducts]);
 
   const totalProductsPages = groupedProducts?.length || 0;
   const [currentProductsPage, setCurrentProductsPage] = useState(1);
@@ -213,8 +223,6 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   useEffect(() => {
     setCurrentProductsPage(1);
   }, [filterCategory, orderBy, orderDirection, selectedProductId]);
-
-
 
   return (
     <ProductsContext.Provider

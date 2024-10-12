@@ -1,11 +1,15 @@
+'use client';
 import { Product, RootState } from '@/types';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 
 const ProductCard = ({ product }: { product: Product }) => {
   const user = useSelector((state: RootState) => state.user);
+  const [isImageMobileLoaded, setIsImageMobileLoaded] = useState(false);
+  const [isImageDesktopLoaded, setIsImageDesktopLoaded] = useState(false);
 
   return (
     <div
@@ -13,35 +17,53 @@ const ProductCard = ({ product }: { product: Product }) => {
         product.cost > (user.points || Infinity) ? 'grayscale opacity-50' : ''
       }`}
     >
-      <header className='h-[345px] flex items-center justify-center'>
-        {!product.img.url || !product.name ? (
+      <header className='relative h-[345px] flex items-center justify-center'>
+        {product.img.url && (
           <Image
             loading='lazy'
+            src={product.img.url}
+            alt={product.name}
+            width={280}
+            height={204}
+            className={`z-[1] w-[280px] lg:hidden`}
+            onLoadingComplete={() => setIsImageMobileLoaded(true)}
+          />
+        )}
+
+        {!isImageMobileLoaded && (
+          <Image
             src='/icons/icon-aerolab-skeleton.svg'
             alt='Icon Aerolab Skeleton'
-            width={1}
-            height={1}
-            className={`w-20 h-20 animate-pulse`}
+            width={80}
+            height={80}
+            className={`w-20 h-20 animate-pulse lg:hidden ${
+              product.img.url ? 'absolute' : ''
+            }`}
           />
-        ) : (
-          <>
-            <Image
-              loading='lazy'
-              src={product.img.url}
-              alt={product.name}
-              width={280}
-              height={204}
-              className={`w-[280px] lg:hidden`}
-            />
-            <Image
-              loading='lazy'
-              src={product.img.hdUrl}
-              alt={product.name}
-              width={280}
-              height={204}
-              className={`w-[280px] hidden lg:flex`}
-            />
-          </>
+        )}
+
+        {product.img.hdUrl && (
+          <Image
+            loading='lazy'
+            src={product.img.hdUrl}
+            alt={product.name}
+            width={280}
+            height={204}
+            className='z-[1] w-[280px] hidden lg:flex'
+            onLoadingComplete={() => setIsImageDesktopLoaded(true)}
+          />
+        )}
+
+        {!isImageDesktopLoaded && (
+          <Image
+            src='/icons/icon-aerolab-skeleton.svg'
+            alt='Icon Aerolab Skeleton'
+            width={80}
+            height={80}
+            className={`w-20 h-20 animate-pulse hidden lg:flex ${
+              product.img.url ? 'absolute' : ''
+            }`}
+          />
         )}
       </header>
       <Separator />

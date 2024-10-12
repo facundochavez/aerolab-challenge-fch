@@ -39,7 +39,7 @@ const SortBadge: React.FC<SortBadgeProps> = ({ sortOption }) => {
       >
         <span
           ref={spanRef}
-          className={`px-2 l1-text-lightweight text-neutral-500 whitespace-nowrap overflow-hidden text-ellipsis ${
+          className={`pl-2 pr-1 l1-text-lightweight text-neutral-500 whitespace-nowrap overflow-hidden text-ellipsis ${
             isBadgeSorting ? 'text-brand-gradient !font-bold' : ''
           }`}
         >
