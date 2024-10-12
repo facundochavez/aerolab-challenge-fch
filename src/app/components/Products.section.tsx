@@ -9,7 +9,8 @@ import { useSelector } from 'react-redux';
 import { Product, RootState } from '@/types';
 
 const ProductsSection = () => {
-  const { groupedProducts, currentProductsPage } = useProductsContext();
+  const { groupedProducts, currentProductsPage, orderedProductsLen } =
+    useProductsContext();
   const user = useSelector((state: RootState) => state.user);
 
   return (
@@ -59,7 +60,11 @@ const ProductsSection = () => {
           <ProductsPagination />
         </div>
         <p className='l1-text-default text-neutral-600 order-3 md:pt-5'>
-          <span className='text-brand-gradient'>16 of 32</span> products
+          <span className='text-brand-gradient'>
+            {groupedProducts[currentProductsPage - 1]?.length} of{' '}
+            {orderedProductsLen}
+          </span>{' '}
+          products
         </p>
       </footer>
     </section>

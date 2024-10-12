@@ -30,6 +30,8 @@ interface ProductsContextProps {
   setFilterCategory: React.Dispatch<React.SetStateAction<string>>;
   currentProductsPage: number;
   setCurrentProductsPage: React.Dispatch<React.SetStateAction<number>>;
+  totalProductsPages: number;
+  orderedProductsLen: number;
 }
 
 const ProductsContext = createContext<ProductsContextProps | undefined>(
@@ -44,10 +46,10 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [orderedProducts, setOrderedProducts] = useState<Product[]>([]);
+  const orderedProductsLen = orderedProducts.length;
   const [selectedProductId, setSelectedProductId] = useState<string | null>(
     null
   );
-  const [currentProductsPage, setCurrentProductsPage] = useState(1);
 
   // INITIALIZE CONTEXT VALUES
   const [orderBy, setOrderBy] = useState<'price' | 'date'>(
@@ -178,6 +180,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
     handleOrder();
   }, [orderBy, orderDirection, filteredProducts]);
 
+
   // PAGINATE PRODUCTS
   const groupedProducts = orderedProducts
     ? orderedProducts.reduce((acc, _, index) => {
@@ -187,6 +190,14 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         return acc;
       }, [] as Product[][])
     : [];
+  
+    const totalProductsPages = groupedProducts.length;
+    const [currentProductsPage, setCurrentProductsPage] = useState(1);
+
+    useEffect(() => {
+      setCurrentProductsPage(1);
+    }, [filterCategory, orderBy, orderDirection, selectedProductId]);
+
 
   return (
     <ProductsContext.Provider
@@ -203,6 +214,8 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         setFilterCategory,
         currentProductsPage,
         setCurrentProductsPage,
+        totalProductsPages,
+        orderedProductsLen
       }}
     >
       {children}

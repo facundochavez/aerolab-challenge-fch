@@ -28,7 +28,7 @@ const buttonVariants = cva(
         selected:
           '!px-1 !rounded-xl bg-brand-gradient drop-shadow-none [&>span]:text-neutral-0',
         pagination:
-          '!px-1 !rounded-xl w-[36px] h-[36px] lg:w-[40px] lg:h-[40px] bg-brand-light hover:opacity-80 disabled:!opacity-100 disabled:bg-neutral-200',
+          '!px-1 !rounded-xl w-[36px] h-[36px] lg:w-[40px] lg:h-[40px] bg-brand-light hover:opacity-80 disabled:!opacity-30 disabled:bg-neutral-200',
       },
       size: {
         default: 'h-9 px-4 py-2',
