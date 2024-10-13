@@ -14,6 +14,7 @@ const ProductsPagination = () => {
   return (
     <div className='flex items-center gap-4 h-[60px] rounded-[14px] lg:rounded-[16px] border border-neutral-300 p-2'>
       <Button
+        aria-label='Go to previous page'
         variant='pagination'
         disabled={isPrevDisabled}
         onClick={() => {
@@ -36,6 +37,7 @@ const ProductsPagination = () => {
         </span>
       </p>
       <Button
+        aria-label='Go to next page'
         variant='pagination'
         disabled={isNextDisabled}
         onClick={() => {

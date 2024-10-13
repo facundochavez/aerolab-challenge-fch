@@ -1,7 +1,6 @@
 import { WalkthroughStep } from '@/types';
 import walkthroughStepsDataRaw from '@/data/walkthroughSteps.data.json';
 import WalkthroughCard from '@/components/WalkthroughCard/WalkthroughCard';
-import Image from 'next/image';
 import HeroImage from '@/components/HeroImage/HeroImage';
 
 const WalkthroughSection = () => {

@@ -45,7 +45,7 @@ const PointsButton = () => {
       onOpenChange={() => setIsDropdownOpen(!isDropdownOpen)}
     >
       <DropdownMenuTrigger asChild>
-        <Button variant='secondary'>
+        <Button variant='secondary' aria-label='Add balance'>
           {!user.points ||
           user.status === 'loading' ||
           user.status === 'processing' ? (
@@ -80,6 +80,7 @@ const PointsButton = () => {
         <DropdownMenuLabel className='flex items-center justify-between px-0'>
           <span className='l1-text-default text-neutral-900'>Add Balance</span>
           <Image
+            aria-label='Close dropdown'
             src='/icons/close.svg'
             alt='Close icon'
             width={1}
@@ -102,6 +103,7 @@ const PointsButton = () => {
         <div className='flex gap-2'>
           {addNumbers.map((num, index) => (
             <Button
+              aria-label={'Select amount ' + num}
               key={index}
               variant={selectedIndex === index ? 'selected' : 'selector'}
               onClick={() => setSelectedIndex(index)}
@@ -114,6 +116,7 @@ const PointsButton = () => {
           ))}
         </div>
         <Button
+          aria-label='Add Points'
           className='w-full'
           disabled={selectedIndex === undefined}
           onClick={handleAddPoints}

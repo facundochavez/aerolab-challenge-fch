@@ -65,6 +65,7 @@ const RedeemButton = ({
 
   return (
     <Button
+      aria-label={`Redeem ${productName}`}
       onMouseEnter={() => setIsButtonHovered(true)}
       onMouseLeave={() => setIsButtonHovered(false)}
       className='w-full min-h-[56px] xl:min-h-[60px] l1-text-default'

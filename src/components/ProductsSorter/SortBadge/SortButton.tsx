@@ -3,18 +3,21 @@ import Image from 'next/image';
 import React from 'react';
 
 interface SortButtonProps {
+  sortBy: string;
   isSorting: boolean;
   direction: 'up' | 'down';
   onClick: () => void;
 }
 
 const SortButton: React.FC<SortButtonProps> = ({
+  sortBy,
   isSorting = false,
   direction = 'up',
   onClick,
 }) => {
   return (
     <Button
+      aria-label={`Sort products by ${sortBy} to ${direction}`}
       onClick={onClick}
       variant={`${isSorting ? 'selected' : 'selector'}`}
     >

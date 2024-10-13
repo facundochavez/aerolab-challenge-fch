@@ -8,6 +8,7 @@ const ModeToggle: React.FC = () => {
 
   return (
     <Button
+      aria-label='Toggle theme'
       variant='secondary'
       className='px-2 lg:px-3'
       onClick={() => setTheme(() => (theme === 'light' ? 'dark' : 'light'))}

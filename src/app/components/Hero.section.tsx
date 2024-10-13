@@ -18,6 +18,7 @@ const HeroSection = () => {
           and exchange them for cool tech.
         </p>
         <Button
+          aria-label='Go to all products'
           className='mt-8 min-h-16 !rounded-[24px] px-10 lg:min-h-20'
           onClick={scrollToProductsSection}
         >

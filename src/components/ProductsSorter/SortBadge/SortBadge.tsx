@@ -40,7 +40,9 @@ const SortBadge: React.FC<SortBadgeProps> = ({ sortOption }) => {
         <span
           ref={spanRef}
           className={`pl-2 pr-1 l1-text-lightweight text-neutral-500 whitespace-nowrap overflow-hidden text-ellipsis ${
-            isBadgeSorting ? 'text-brand-gradient !font-bold dark:brightness-110' : ''
+            isBadgeSorting
+              ? 'text-brand-gradient !font-bold dark:brightness-110'
+              : ''
           }`}
         >
           {!isBadgeSorting
@@ -52,6 +54,7 @@ const SortBadge: React.FC<SortBadgeProps> = ({ sortOption }) => {
       </div>
       <SortButton
         isSorting={isBadgeSorting && orderDirection === 'down'}
+        sortBy={orderBy}
         direction='down'
         onClick={() => {
           setOrderBy(sortOption.id);
@@ -60,6 +63,7 @@ const SortBadge: React.FC<SortBadgeProps> = ({ sortOption }) => {
       />
       <SortButton
         isSorting={isBadgeSorting && orderDirection === 'up'}
+        sortBy={orderBy}
         direction='up'
         onClick={() => {
           setOrderBy(sortOption.id);
