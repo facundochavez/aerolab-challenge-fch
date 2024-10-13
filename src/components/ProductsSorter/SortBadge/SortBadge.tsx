@@ -32,7 +32,7 @@ const SortBadge: React.FC<SortBadgeProps> = ({ sortOption }) => {
   }, [orderBy, orderDirection]);
 
   return (
-    <div className='min-w-max flex items-center gap-1.5 p-2 rounded-[14px] lg:rounded-[16px] bg-neutral-100'>
+    <div className='min-w-max flex items-center gap-1.5 p-2 rounded-[14px] lg:rounded-[16px] bg-neutral-100 dark:bg-neutral-100/10'>
       <div
         style={{ width: spanWidth }}
         className='transition-all duration-200 overflow-hidden'
@@ -40,7 +40,7 @@ const SortBadge: React.FC<SortBadgeProps> = ({ sortOption }) => {
         <span
           ref={spanRef}
           className={`pl-2 pr-1 l1-text-lightweight text-neutral-500 whitespace-nowrap overflow-hidden text-ellipsis ${
-            isBadgeSorting ? 'text-brand-gradient !font-bold' : ''
+            isBadgeSorting ? 'text-brand-gradient !font-bold dark:brightness-110' : ''
           }`}
         >
           {!isBadgeSorting

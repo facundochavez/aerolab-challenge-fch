@@ -31,7 +31,7 @@ const ProductsPagination = () => {
       </Button>
       <p className='l1-text-default'>
         Page{' '}
-        <span className='text-brand-gradient'>
+        <span className='text-brand-gradient dark:brightness-110'>
           {currentProductsPage} of {totalProductsPages}
         </span>
       </p>

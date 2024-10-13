@@ -57,7 +57,7 @@ const RedeemButton = ({
         onMouseLeave={() => setIsButtonHovered(false)}
         className='w-full min-h-[56px] xl:min-h-[60px] l1-text-default opacity-70'
       >
-        <LoaderCircle className='h-6 w-6 mr-1 animate-spin text-neutral-0' />
+        <LoaderCircle className='h-6 w-6 mr-1 animate-spin text-white' />
         <span>Processing...</span>
       </Button>
     );

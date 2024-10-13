@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const WalkthroughCard = ({ step }: { step: WalkthroughStep }) => {
   return (
-    <div className='w-full bg-neutral-0/70 lg:bg-neutral-0 rounded-[32px] border-neutral-300 border p-3 lg:shadow-xl lg:shadow-neutral-500/10 lg:w-[380px] xl:w-[532px]'>
+    <div className='w-full bg-neutral-0/70 lg:bg-neutral-0 dark:bg-neutral-300/70 dark:lg:bg-neutral-300 rounded-[32px] border-neutral-300 border p-3 lg:shadow-xl lg:shadow-neutral-500/10 dark:shadow-black/15 lg:w-[380px] xl:w-[532px]'>
       <div className='w-full h-full rounded-[20px] border-neutral-300 border overflow-hidden bg-neutral-0'>
         <header className='w-full h-[200px] bg-gradient-to-br from-special-illustration-bg-1 to-special-illustration-bg-2 lg:h-[300px] xl:h-[500px]'>
           <Image
@@ -48,7 +48,7 @@ const WalkthroughCard = ({ step }: { step: WalkthroughStep }) => {
             }`}
           >
             <p
-              className={`xs:absolute l1-text-default text-neutral-600 flex lg:relative ${
+              className={`xs:absolute l1-text-default text-neutral-600 flex lg:!relative ${
                 step.position !== 3 ? 'xl:max-w-[370px]' : ''
               }`}
             >

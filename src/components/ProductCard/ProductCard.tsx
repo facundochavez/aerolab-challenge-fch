@@ -71,14 +71,14 @@ const ProductCard = ({ product }: { product: Product }) => {
         {!product.name ? (
           <Skeleton className='h-4 w-52 mb-2 rounded-[12px] max-w-full' />
         ) : (
-          <h2 className='l1-text-default text-neutral-900 overflow-hidden text-ellipsis whitespace-nowrap'>
+          <h2 className='l1-text-default text-neutral-900 overflow-hidden text-ellipsis whitespace-nowrap dark:text-neutral-0'>
             {product.name}
           </h2>
         )}
         {!product.category ? (
           <Skeleton className='h-2 w-28 rounded-[4px] max-w-full' />
         ) : (
-          <span className='l2-text-allcaps text-neutral-600'>
+          <span className='l2-text-allcaps text-neutral-600 dark:text-neutral-100'>
             {product.category}
           </span>
         )}

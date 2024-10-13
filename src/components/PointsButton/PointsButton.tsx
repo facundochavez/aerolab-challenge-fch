@@ -59,7 +59,7 @@ const PointsButton = () => {
               className='w-5 lg:w-6 h-5 lg:h-6'
             />
           )}
-          <span className='l1-text-default text-brand-gradient'>
+          <span className='l1-text-default text-brand-gradient dark:text-white dark:font-medium'>
             {!user.points ? 'Loading...' : formatedNumber(user.points)}
           </span>
           <Image
@@ -89,14 +89,16 @@ const PointsButton = () => {
           />
         </DropdownMenuLabel>
         <Separator className='-mx-5 w-[120%]' />
+
         <Image
           src='/images/aerocard.svg'
           alt='Aerocard'
           width={1}
           height={1}
           objectFit='cover'
-          className='w-full my-2'
+          className='w-full my-2 dark:border dark:border-neutral-300 dark:rounded-[8px]'
         />
+
         <div className='flex gap-2'>
           {addNumbers.map((num, index) => (
             <Button

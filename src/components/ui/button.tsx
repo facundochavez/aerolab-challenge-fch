@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-brand-gradient [&>span]:text-neutral-0 hover:bg-primary/90',
+          '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-brand-gradient [&>span]:text-white hover:bg-primary/90',
         disabled:
           '!h-10 lg:!h-12 rounded-[14px] lg:rounded-[16px] bg-neutral-200 [&>span]:text-neutral-600 cursor-auto',
         processing:
@@ -20,15 +20,15 @@ const buttonVariants = cva(
         outline:
           'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
         secondary:
-          '!h-10 lg:!h-12 !rounded-[14px] lg:!rounded-[16px] bg-neutral-0 border border-neutral-300 text-secondary-foreground shadow-sm shadow-neutral-500/5 hover:bg-neutral-100 [&>span]:text-brand-gradient',
+          '!h-10 lg:!h-12 !rounded-[14px] lg:!rounded-[16px] bg-neutral-0 border border-neutral-300 text-secondary-foreground shadow-sm shadow-neutral-500/5 dark:shadow-none hover:bg-neutral-100 dark:hover:bg-[#262f39] [&>span]:text-brand-gradient',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
         selector:
-          '!px-1 !rounded-xl bg-[#E5F0FF] drop-shadow-none hover:opacity-85',
+          '!px-1 !rounded-xl bg-[#E5F0FF] dark:bg-[#E5F0FF]/10 drop-shadow-none hover:opacity-85 dark:[&>span]:text-white dark:[&>span]:font-medium',
         selected:
-          '!px-1 !rounded-xl bg-brand-gradient drop-shadow-none [&>span]:text-neutral-0',
+          '!px-1 !rounded-xl bg-brand-gradient drop-shadow-none [&>span]:text-white',
         pagination:
-          '!px-1 !rounded-xl w-[36px] h-[36px] lg:w-[40px] lg:h-[40px] bg-brand-light hover:opacity-80 disabled:!opacity-30 disabled:bg-neutral-200',
+          '!px-1 !rounded-xl w-[36px] h-[36px] lg:w-[40px] lg:h-[40px] bg-brand-light hover:opacity-80 disabled:!opacity-30 disabled:bg-neutral-200 dark:bg-neutral-100/30',
       },
       size: {
         default: 'h-9 px-4 py-2',
