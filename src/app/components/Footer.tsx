@@ -6,7 +6,7 @@ const Footer = () => {
   const [isLinkHovered, setIsLinkHovered] = useState(false);
 
   return (
-    <footer className='w-full px-[5%] flex flex-col items-center py-24'>
+    <footer className='w-full px-[5%] flex flex-col items-center pb-24 pt-10'>
       <a
         aria-label='View this repository on GitHub'
         href='https://github.com/facundochavez/aerolab-challenge-fch'

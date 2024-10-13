@@ -22,9 +22,9 @@ const ProductsSection = () => {
   return (
     <section
       id='products-section'
-      className='flex w-screen flex-col items-center gap-10 bg-neutral-0 px-[5%] pb-40 pt-20 lg:pt-48'
+      className='flex w-screen flex-col items-center gap-10 bg-neutral-0 px-[5%] pb-60 pt-20 lg:pt-48'
       style={{
-        maskImage: 'linear-gradient(to top, transparent, black 80px)',
+        maskImage: 'linear-gradient(to top, transparent, black 200px)',
       }}
     >
       <ProductsNavbar />
