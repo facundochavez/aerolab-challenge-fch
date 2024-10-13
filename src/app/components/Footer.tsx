@@ -28,7 +28,7 @@ const Footer = () => {
             alt='GitHub Logo'
             width={1}
             height={1}
-            className='w-6 h-6 lg:w-8 lg:h-8 mb-1 brightness-200'
+            className='w-6 h-6 lg:w-8 lg:h-8 mb-1 brightness-90 dark:brightness-200'
           />
         )}
         <span className={`${isLinkHovered ? 'text-brand-gradient' : ''}`}>

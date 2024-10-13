@@ -8,6 +8,12 @@ import { Toaster } from '@/components/ui/sonner';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
 import { metadata } from '@/app/metadata';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+});
 
 export default function RootLayout({
   children,
@@ -28,7 +34,7 @@ export default function RootLayout({
         <meta name='description' content={metadata.description} />
         <link rel='icon' href={metadata.icons.icon} />
       </head>
-      <body className='relative' lang='en'>
+      <body className={montserrat.className} lang='en'>
         <ThemeProvider attribute='class' defaultTheme='light'>
           <Provider store={store}>
             <WavesBackground />
