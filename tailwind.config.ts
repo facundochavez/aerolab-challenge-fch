@@ -1,8 +1,8 @@
-import type { Config } from "tailwindcss";
 import fluid, { extract, screens, fontSize } from "fluid-tailwind";
+import { transform } from "next/dist/build/swc";
 
 /** @type {import('fluid-tailwind').FluidThemeConfig} */
-const config: Config = {
+module.exports = {
   darkMode: ["class"],
   content: {
     files: [
@@ -100,10 +100,60 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        fade: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+
+        "zoom-in": {
+          from: { opacity: 0, transform: "scale(0.5)" },
+          to: { transform: "scale(1)" },
+        },
+        "floating-1": {
+          "0%, 100%": {
+            transform: "translateY(1%)",
+          },
+          "50%": {
+            transform: "translateY(-1%)",
+          },
+        },
+        "floating-2": {
+          "0%, 100%": {
+            transform: "translateY(-0.5%)",
+          },
+          "50%": {
+            transform: "translateY(1%)",
+          },
+        },
+        "floating-3": {
+          "0%, 100%": {
+            transform: "translateY(0.5%)",
+          },
+          "50%": {
+            transform: "translateY(-1%)",
+          },
+        },
+        "floating-4": {
+          "0%, 100%": {
+            transform: "translateY(-1%)",
+          },
+          "50%": {
+            transform: "translateY(1%)",
+          },
+        },
+      },
+      animation: {
+        "fade": "fade 1s ease-out",
+        "zoom-in": "zoom-in 0.5s ease-out",
+        "floating-1": "floating-1 3s ease-in-out infinite",
+        "floating-2": "floating-2 2.5s ease-in-out infinite",
+        "floating-3": "floating-3 2.5s ease-in-out infinite",
+        "floating-4": "floating-4 4s ease-in-out infinite",
+      },
     },
     screens,
     fontSize,
   },
   plugins: [require("tailwindcss-animate"), fluid],
 };
-export default config;
