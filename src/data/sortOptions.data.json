@@ -2,19 +2,19 @@
   {
     "id": "date",
     "label": "Date",
-    "downText": "Most Recent",
-    "upText": "Most Ancient"
+    "upText": "Most Recent",
+    "downText": "Most Ancient"
   },
   {
     "id": "price",
     "label": "Price",
-    "downText": "Lowest Price",
-    "upText": "Highest Price"
+    "upText": "Highest Price",
+    "downText": "Lowest Price"
   },
   {
     "id": "name",
     "label": "Name",
-    "downText": "From A to Z",
-    "upText": "Form Z to A"
+    "upText": "From A to Z",
+    "downText": "Form Z to A"
   }
 ]

@@ -53,21 +53,21 @@ const SortBadge: React.FC<SortBadgeProps> = ({ sortOption }) => {
         </span>
       </div>
       <SortButton
-        isSorting={isBadgeSorting && orderDirection === 'down'}
-        sortBy={orderBy}
-        direction='down'
-        onClick={() => {
-          setOrderBy(sortOption.id);
-          setOrderDirection('down');
-        }}
-      />
-      <SortButton
         isSorting={isBadgeSorting && orderDirection === 'up'}
         sortBy={orderBy}
         direction='up'
         onClick={() => {
           setOrderBy(sortOption.id);
           setOrderDirection('up');
+        }}
+      />
+      <SortButton
+        isSorting={isBadgeSorting && orderDirection === 'down'}
+        sortBy={orderBy}
+        direction='down'
+        onClick={() => {
+          setOrderBy(sortOption.id);
+          setOrderDirection('down');
         }}
       />
     </div>

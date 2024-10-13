@@ -152,17 +152,17 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
       switch (orderBy) {
         case 'price':
           sorted = [...filteredProducts].sort((a, b) => {
-            if (orderDirection === 'down') {
-              return a.cost - b.cost; // LOW TO HIGH
+            if (orderDirection === 'up') {
+              return b.cost - a.cost; // LOW TO HIGH
             } else {
-              return b.cost - a.cost; // HIGH TO LOW
+              return a.cost - b.cost; // HIGH TO LOW
             }
           });
           break;
 
         case 'name':
           sorted = [...filteredProducts].sort((a, b) => {
-            if (orderDirection === 'down') {
+            if (orderDirection === 'up') {
               return a.name.localeCompare(b.name); // A-Z
             } else {
               return b.name.localeCompare(a.name); // Z-A
@@ -172,7 +172,7 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
 
         case 'date':
           sorted =
-            orderDirection === 'down'
+            orderDirection === 'up'
               ? [...filteredProducts] // MOST RECENT
               : [...filteredProducts].reverse(); // MOST ANCIENT
           setOrderedProducts(sorted);
