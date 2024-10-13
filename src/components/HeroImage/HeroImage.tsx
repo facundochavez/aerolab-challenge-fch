@@ -40,7 +40,6 @@ const HeroImage = ({ disabledBackground = false }) => {
       )}
       {/* PERSON */}
       <Image
-        loading='lazy'
         src={`/images/hero-image/mobile/hero-person.svg`}
         alt='Hero Image'
         width={950}
@@ -48,7 +47,6 @@ const HeroImage = ({ disabledBackground = false }) => {
         className={`animate-fade absolute -bottom-[1.2px] flex w-full object-cover lg:hidden`}
       />
       <Image
-        loading='lazy'
         src={`/images/hero-image/desktop/hero-person.svg`}
         alt='Hero Image'
         width={950}
@@ -61,7 +59,6 @@ const HeroImage = ({ disabledBackground = false }) => {
         {Array.from({ length: 10 }).map((_, index) => (
           <>
             <Image
-              loading='lazy'
               src={`/images/hero-image/mobile/hero-${index}.svg`}
               alt={`Hero Image Piece ${index} Mobile`}
               width={950}
@@ -77,7 +74,6 @@ const HeroImage = ({ disabledBackground = false }) => {
               }`}
             />
             <Image
-              loading='lazy'
               src={`/images/hero-image/desktop/hero-${index}.svg`}
               alt={`Hero Image Piece ${index} Desktop`}
               width={950}
