@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const HeroSection = () => {
   return (
-    <section className="flex w-full max-w-[1464px] flex-col items-center pt-[90px] lg:flex-row lg:pt-[110px]">
+    <section className="flex w-full max-w-[1464px] flex-col items-center pt-[90px] lg:flex-row lg:pt-[50px]">
       <div className="flex w-min max-w-[90vw] flex-col items-center gap-2 lg:-mr-36 lg:items-start xl:mr-0">
         <h1 className="l1-text-allcaps text-neutral-600">Explore the</h1>
         <div className="lg:scale-[0.83] xl:scale-100 lg:-my-6 xl:my-0 flex origin-left flex-col items-center gap-2 lg:items-start">
