@@ -25,7 +25,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input shadow-sm shadow-neutral-500/20 hover:bg-neutral-100 dark:hover:bg-[#262f39] bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-neutral-500 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
+      '[&>img]:data-[state=open]:rotate-[-90deg] [&>img]:data-[state=closed]:rotate-[90deg] flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input shadow-sm shadow-neutral-500/20 hover:bg-neutral-100 dark:hover:bg-[#262f39] bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-neutral-500 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
       className
     )}
     {...props}
@@ -37,7 +37,7 @@ const SelectTrigger = React.forwardRef<
         alt='icon-chevron'
         width={1}
         height={1}
-        className='w-5 lg:w-6 h-5 lg:h-6 rotate-[90deg]'
+        className='w-5 lg:w-6 h-5 lg:h-6 duration-150'
       />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>

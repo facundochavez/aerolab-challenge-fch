@@ -67,7 +67,7 @@ const PointsButton = () => {
             alt='icon-chevron'
             width={1}
             height={1}
-            className={`w-5 lg:w-6 h-5 lg:h-6 transition-transform duration-100 ${
+            className={`w-5 lg:w-6 h-5 lg:h-6 transition-transform duration-150 ${
               isDropdownOpen ? 'rotate-[-90deg]' : 'rotate-[90deg]'
             }`}
           />
