@@ -43,7 +43,7 @@ const RedeemButton = ({
           alt='icon-aerolab'
           width={1}
           height={1}
-          className='w-5 lg:w-6 h-5 lg:h-6 filter-neutral-500'
+          className='w-5 lg:w-6 h-5 lg:h-6 filter-neutral-500 dark:brightness-200'
         />
         <span>{formatedNumber(cost)}</span>
       </Button>
